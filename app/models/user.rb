@@ -12,5 +12,5 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :street, presence: true
   validates :city, presence: true
-  validates_format_of :zip_code, :with => /\A\d{5}(-\d{4})?\z/, :message => "Zip code should be valid"
+  validates_format_of :zipcode, :with => /\A\d{5}(-\d{4})?\z/, :message => "Zip code should be valid"
 end

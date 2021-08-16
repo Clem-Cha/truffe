@@ -1,6 +1,6 @@
 class Booking < ApplicationRecord
-  belongs_to :dog, :dependent => :destroy
-  belongs_to :user, :dependent => :destroy
+  belongs_to :dog
+  belongs_to :user
 
   validates :status, inclusion: { in: %w(approved, pending, rejected) }
   validates :start_date, presence: true

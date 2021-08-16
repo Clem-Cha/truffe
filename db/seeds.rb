@@ -9,10 +9,11 @@
 require 'faker'
 require 'date'
 puts "Cleaning db"
-Dog.destroy_all
-User.destroy_all
 Review.destroy_all
 Booking.destroy_all
+Dog.destroy_all
+User.destroy_all
+
 
 puts "Creating 10 user seeds"
 10.times do
@@ -33,8 +34,7 @@ end
 puts "Finish creating user seeds"
 
 puts "Creating 10 dogs seeds"
-10.times do
-  user_id = 1
+20.times do
   Dog.create(
     name: Faker::Creature::Dog.name,
     age: rand(1..15),
@@ -43,36 +43,29 @@ puts "Creating 10 dogs seeds"
     description: Faker::Creature::Dog.meme_phrase,
     start_date: Faker::Date.backward(days: 14),
     end_date: Faker::Date.forward(days: 23),
-    user_id: user_id
+    user: User.order('RANDOM()').first
   )
-  user_id += 1
 end
 puts "Finish creating dogs seeds"
 
 puts "Creating 5 booking seeds"
-5.times do
-  dog_id = 1
-  user_id = 1
+10.times do
   Booking.create(
     start_date: Faker::Date.backward(days: 14),
     end_date: Faker::Date.forward(days: 23),
     status: %w(pending approved rejected).sample,
-    dog_id: dog_id,
-    user_id: user_id
+    dog: Dog.order('RANDOM()').first,
+    user: User.order('RANDOM()').first
   )
-  dog_id += 1
-  user_id += 1
 end
 puts "Finish creating booking seeds"
 
 puts "Creating 5 review seeds"
-5.times do
-  booking_id = 1
+10.times do
   Review.create(
     comment: Faker::Quote.yoda,
     rating: rand(0..10),
-    booking_id: booking_id
+    booking: Booking.order('RANDOM()').first
   )
-  booking_id += 1
 end
 puts "Finish creating review seeds"

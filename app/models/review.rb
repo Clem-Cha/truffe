@@ -1,5 +1,5 @@
 class Review < ApplicationRecord
-  belongs_to :booking, :dependent => :destroy
+  belongs_to :booking
 
   validates :comment, presence: true
   validates :rating, presence: true

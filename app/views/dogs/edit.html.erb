@@ -4,10 +4,9 @@
   <%= f.input :name %>
   <%= f.input :age %>
   <%= f.input :breed %>
-  <%= f.input :category %>
-  <%# <%= f.select :category, :collection => Dog::DOG_CATEGORY %> %>
+  <%= f.select :category, :collection => Dog::DOG_CATEGORY %>
   <%= f.input :description %>
   <%= f.input :start_date, as: :date %>
   <%= f.input :end_date, as: :date %>
-  <%= f.submit "Submit review", class:"btn btn-dark" %>
+  <%= f.submit "Submit changes", class:"btn btn-dark" %>
 <% end %>

@@ -1,0 +1,12 @@
+<h1>Add a new truffle</h1>
+
+<%= simple_form_for @dog do |f| %>
+  <%= f.input :name %>
+  <%= f.input :age %>
+  <%= f.input :breed %>
+  <%= f.select :category, :collection => Dog::DOG_CATEGORY %>
+  <%= f.input :description %>
+  <%= f.input :start_date, as: :date %>
+  <%= f.input :end_date, as: :date %>
+  <%= f.submit "Create", class:"btn btn-dark" %>
+<% end %>

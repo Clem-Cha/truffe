@@ -1,6 +1,6 @@
 class Dog < ApplicationRecord
   belongs_to :user, :dependent => :destroy
-  has_many :reviews, through :bookings
+  has_many :reviews, through: :bookings
   DOG_CATEGORY = %w(walk sport flirt companion hunt holiday education breeding)
 
   # Validations

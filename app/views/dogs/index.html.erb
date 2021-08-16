@@ -1,0 +1,15 @@
+<h1>Find the next truffle</h1>
+
+<ul>
+  <% @dogs.each do |dog| %>
+    <div>
+    <h5><%= link_to dog.name, dog_path(dog) %></h5>
+    <%= dog.breed %> •
+    <%= dog.category %> •
+    <%= dog.age %> years old<br>
+    <%= dog.description %>
+    </div>
+  <% end %>
+</ul>
+
+<%= link_to "Back to homepage", root_path %>

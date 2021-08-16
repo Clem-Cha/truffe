@@ -26,16 +26,20 @@
                 autofocus: false%>
     <%= f.input :phone_number,
                 required: true,
-                autofocus: false%>
+                autofocus: false,
+                input_html: { autocomplete: "tel-national" } %>
     <%= f.input :street,
                 required: true,
-                autofocus: false%>
+                autofocus: false,
+                input_html: { autocomplete: "address-level1" } %>
     <%= f.input :city,
                 required: true,
-                autofocus: false%>
+                autofocus: false,
+                input_html: { autocomplete: "city" } %>
     <%= f.input :zipcode,
                 required: true,
-                autofocus: false%>
+                autofocus: false,
+                input_html: { autocomplete: "postal-code" } %>
   </div>
 
   <div class="form-actions">

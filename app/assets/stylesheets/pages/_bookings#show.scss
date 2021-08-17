@@ -1,0 +1,11 @@
+.main-booking-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-booking-info-left,
+.main-booking-info-right {
+  display: flex;
+  list-style-type: none;
+  justify-content: space-between,
+}

@@ -3,7 +3,7 @@
   <h1>Your Bookings: </h1>
   <div class="row">
     <div class="class col-12">
-      <% @bookings.each do |booking| %>
+      <% @bookings.each_with_index do |booking, index| %>
         <% dog = Dog.find(booking.dog_id) %>
         <% user = User.find(booking.user_id) %>
         <% review = Review.new %>
@@ -33,20 +33,24 @@
             </div>
           </div>
         <% else %>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#review-modal">
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#review-modal<%=index%>">
             See your review
           </button>
-          <div class="modal fade" id="review-modal" tabindex="-1" role="dialog" aria-labelledby="review-modalTitle" aria-hidden="true">
+          <div class="modal fade" id="review-modal<%=index%>" tabindex="-1" role="dialog" aria-labelledby="review-modalTitle" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="review-modalTitle">Your review</h5>
+                  <h5 class="modal-title" id="review-modalTitle<%=index%>">Your review</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
-                <div class="modal-body">
-                  <%= dog.reviews[0].comment %>
+                <div class="modal-body">                 
+                  <% if booking.reviews == [] %>
+                    <small><em class="px-3">You didn't put any review for now</em></small>
+                  <% else %>
+                    <%= booking.reviews[0].comment %>
+                  <% end %>                  
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

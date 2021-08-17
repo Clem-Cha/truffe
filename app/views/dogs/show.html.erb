@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <div class="container">
   <h1><%= @dog.name.capitalize %>'s profil</h1>
 
@@ -11,11 +10,11 @@
     <li>Category : <%= @dog.category.capitalize %></li>
     <li>Description : <%= @dog.description.capitalize %></li>
   </ul>
-
+  <%= render 'form', booking: @booking %>
+  <hr>
   <h3>Reviews</h3>
   <ul>
     <li>Average rating: <%= @aggregated_reviews %></li>
-    <hr>
     <% @reviews.each do |review| %>
     <div class="card-product">
       <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
@@ -26,8 +25,6 @@
     </div>
     <% end %>
   </ul>
-  <%= link_to "edit", edit_dog_path %>
-  <%= link_to "Book this Truffle",  dog_bookings_path(@dog) %>
   <%# if policy(@Dog).edit? %>
     <%#= link_to "Update", dog_path(@dog)%>
   <%# end %>

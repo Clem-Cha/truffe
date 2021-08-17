@@ -4,7 +4,8 @@ class DogsController < ApplicationController
     @dogs = policy_scope(Dog)
 
     if params[:category] && params[:breed] && params[:start_date] && params[:end_date]
-      @dogs_dates = @dogs.where("start_date >= ? AND end_date <= ?",  Time.new(params[:start_date]).to_date, Date.parse(params[:end_date]))
+      raise
+      @dogs_dates = @dogs.where("start_date >= ? AND end_date <= ?",  Date.parse(params[:start_date]), Date.parse(params[:end_date]))
       @dogs = @dogs_dates.where(category: params[:category], breed: params[:breed])
     end
   end

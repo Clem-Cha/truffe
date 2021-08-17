@@ -33,7 +33,7 @@ puts "Creating 10 user seeds"
 end
 puts "Finish creating user seeds"
 
-puts "Creating 10 dogs seeds"
+puts "Creating 20 dogs seeds"
 20.times do
   Dog.create(
     name: Faker::Creature::Dog.name,
@@ -48,24 +48,24 @@ puts "Creating 10 dogs seeds"
 end
 puts "Finish creating dogs seeds"
 
-puts "Creating 5 booking seeds"
-10.times do
-  Booking.create(
-    start_date: Faker::Date.backward(days: 14),
-    end_date: Faker::Date.forward(days: 23),
-    status: %w(pending approved rejected).sample,
-    dog: Dog.order('RANDOM()').first,
-    user: User.order('RANDOM()').first
-  )
-end
-puts "Finish creating booking seeds"
+# puts "Creating 10 booking seeds"
+# 10.times do
+#   Booking.create(
+#     start_date: Faker::Date.backward(days: 14),
+#     end_date: Faker::Date.forward(days: 23),
+#     status: %w(pending approved rejected).sample,
+#     dog: Dog.order('RANDOM()').first,
+#     user: User.order('RANDOM()').first
+#   )
+# end
+# puts "Finish creating booking seeds"
 
-puts "Creating 5 review seeds"
-10.times do
-  Review.create(
-    comment: Faker::Quote.yoda,
-    rating: rand(0..10),
-    booking: Booking.order('RANDOM()').first
-  )
-end
-puts "Finish creating review seeds"
+# puts "Creating 10 review seeds"
+# 10.times do
+#   Review.create(
+#     comment: Faker::Quote.yoda,
+#     rating: rand(0..10),
+#     booking: Booking.order('RANDOM()').first
+#   )
+# end
+# puts "Finish creating review seeds"

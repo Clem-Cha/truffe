@@ -1,6 +1,11 @@
 class DogsController < ApplicationController
+
   def index
-    @dogs = Dog.all
+    if params[:category] && params[:breed] && params[:start_date] && params[:end_date]
+      @dogs = Dog.where({ category: params[:category], breed: params[:breed], start_date: params[:start_date], end_date: params[:end_date]})
+    else
+      @dogs = Dog.all
+    end
   end
 
   def show
@@ -12,6 +17,7 @@ class DogsController < ApplicationController
   end
 
   def create
+    raise
      @dog = Dog.new(dog_params)
      @dog.user = current_user
     if @dog.save
@@ -33,6 +39,6 @@ class DogsController < ApplicationController
 
   private
   def dog_params
-    params.require(:dog).permit(:name, :age, :breed, :category, :description, :start_date, :end_date)
+    params.require(:dog).permit(:breed, :category, :start_date, :end_date)
   end
 end

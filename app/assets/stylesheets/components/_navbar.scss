@@ -20,3 +20,43 @@
 .fa-paw {
   text-decoration: none;
 }
+
+.flex {
+  display: flex;
+}
+
+.fixed-top-nav {
+  position: sticky;
+  top: 0;
+  width: 100%;
+}
+
+.navbar {
+  .navbar-nav {
+    .nav-item {
+      .nav-color {
+        color: #222A68;
+      }
+    }
+  }
+}
+
+.nav-color {
+  color: #222A68;
+}
+
+.avatar {
+  width: 46px;
+  border-radius: 50%;
+  align-items: center;
+}
+
+.align {
+  align-items: center;
+}
+
+.flex{
+  .nav-link {
+    padding: 1rem 1rem;
+  }
+}

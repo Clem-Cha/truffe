@@ -2,9 +2,9 @@
 
 <%= form_tag dogs_path, method: :get do %>
     Category : <%= select_tag :category,
-                  options_for_select(Dog::DOG_CATEGORY)%>
-    Breed :    <%= text_field_tag :breed,
-                  params[:breed] %>
+                  options_for_select(Dog::DOG_CATEGORY, selected: params[:category]), :include_blank => true %>
+    Breed :    <%= select_tag :breed,
+                   options_for_select(Dog.all.pluck(:breed).uniq, selected: params[:breed]), :include_blank => true %>
     Start date : <%= date_field_tag :start_date,
                   params[:start_date] %>
     End date :  <%= date_field_tag :end_date,

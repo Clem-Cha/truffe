@@ -1,5 +1,7 @@
 <h1><%= @dog.name.capitalize %>'s profil</h1>
 
+<%= link_to "edit", edit_dog_path %>
+
 <ul>
   <% @dog.photos.each do |photo| %>
     <%= cl_image_tag photo.key %>

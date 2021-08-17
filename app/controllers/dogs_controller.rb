@@ -1,6 +1,6 @@
 class DogsController < ApplicationController
   def index
-    @dogs = Dog.all
+    @dogs = policy_scope(Dog)
   end
 
   def show
@@ -12,8 +12,10 @@ class DogsController < ApplicationController
   end
 
   def create
-     @dog = Dog.new(dog_params)
-     @dog.user = current_user
+    @dog = Dog.new(dog_params)
+    authorize @dog
+    @dog.user = current_user
+
     if @dog.save
       redirect_to dog_path(@dog)
     else
@@ -27,6 +29,7 @@ class DogsController < ApplicationController
 
   def update
     @dog = Dog.find(params[:id])
+    authorize @dog
     @dog.update(dog_params)
     redirect_to dogs_path(@dog)
   end

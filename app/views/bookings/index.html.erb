@@ -1,5 +1,5 @@
 <div class="container">
-<h1>Your Bookings </h1>
+<h1>Your Bookings: </h1>
   <% @bookings.each do |booking| %>
   <% dog = Dog.find(booking.dog_id) %>
   <% user = User.find(booking.user_id) %>
@@ -32,6 +32,11 @@
       </div>
     <% else %>
     <% end %>
+    <%# @bookings.each do |booking| %>
+      <%# if policy(booking).edit? %>
+        <%#= link_to "Update", booking_path(booking) %>
+      <%# end %>
+    <%# end %>
   </div>
   <% end %>
 </div>

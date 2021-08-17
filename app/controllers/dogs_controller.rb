@@ -1,13 +1,13 @@
 class DogsController < ApplicationController
 
   def index
+    @dogs = policy_scope(Dog)
+
     if params[:category] && params[:breed] && params[:start_date] && params[:end_date]
-      @dogs_dates = Dog.where("start_date >= ? AND end_date <= ?", params[:start_date], params[:end_date])
-      @dogs = Dog.where({ category: params[:category], breed: params[:breed]})
-    else
-      @dogs = policy_scope(Dog)
+      @dogs_dates = @dogs.where("start_date >= ? AND end_date <= ?",  Time.new(params[:start_date]).to_date, Date.parse(params[:end_date]))
+      @dogs = @dogs_dates.where(category: params[:category], breed: params[:breed])
     end
-  end 
+  end
 
   def show
     @dog = Dog.find(params[:id])

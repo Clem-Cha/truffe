@@ -1,22 +1,43 @@
-<div class="container">
-  <h1><%= @dog.name.capitalize %>'s profil</h1>
+<div class="container dog-show">
+  <h1>🐶 Welcome to <%= @dog.name.capitalize %> world 🐶</h1>
 
   <ul>
     <% @dog.photos.each do |photo| %>
       <%= cl_image_tag photo.key %>
     <% end %>
-    <li>Breed : <%= @dog.breed.capitalize %></li>
-    <li>Age : <%= @dog.age %></li>
-    <li>Category : <%= @dog.category.capitalize %></li>
-    <li>Description : <%= @dog.description.capitalize %></li>
+    <div class="flex justify-content-between">
+      <div class="flex">
+        <li>⭐ <%= @aggregated_reviews %></li>
+        <li>🐕 <%= @dog.breed.capitalize %></li>
+        <li>⏳ <%= @dog.age %> y.o.</li>
+        <li>🦴 <%= @dog.category.capitalize %></li>
+      </div>
+      <li><em>"<%= @dog.description.capitalize %>"</em></li>
+    </div>
   </ul>
+  <hr>
+  <div class="row">
+    <div class="flex col-12 col-sm-6 col-my-3">
+      <div class="">
+        <img class="front-picture" src="https://a0.muscache.com/im/pictures/5cac9e7b-8b9f-4e56-8746-3e73ff2bf52e.jpg?im_w=720" style="object-fit: cover;">
+      </div>
+      <div class="">
+        <img class="mid-picture" src="https://a0.muscache.com/im/pictures/dbc5696f-5d1c-4632-b5a8-197f27a11348.jpg?im_w=720" style="object-fit: cover; vertical-align: bottom;">
+        <img class="mid-picture" src="https://a0.muscache.com/im/pictures/dbc5696f-5d1c-4632-b5a8-197f27a11348.jpg?im_w=720" style="object-fit: cover; vertical-align: bottom;">
+      </div>
+      <div>
+        <img class="side-picture-top" src="https://a0.muscache.com/im/pictures/dbc5696f-5d1c-4632-b5a8-197f27a11348.jpg?im_w=720" style="object-fit: cover; vertical-align: bottom;">
+        <img class="side-picture-bottom" src="https://a0.muscache.com/im/pictures/dbc5696f-5d1c-4632-b5a8-197f27a11348.jpg?im_w=720" style="object-fit: cover; vertical-align: bottom;">
+      </div>
+    </div>
+  </div>
+
   <hr>
   <h3>Reviews</h3>
   <ul>
     <% if @dog.reviews.nil? %>
       <small><em class="px-3">This dog has no reviews for now</em></small>
     <% end %>
-    <li>Average rating: <%= @aggregated_reviews %></li>
     <% @dog.reviews.each do |review| %>
       <div class="card-product">
         <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />

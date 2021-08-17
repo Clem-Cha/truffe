@@ -1,4 +1,4 @@
-<h1><%= @dog.name.capitalize %>'s profil</h1>
+<h1><%= @dog.name.capitalize %>'s profile</h1>
 
 <ul>
   <li>Breed : <%= @dog.breed.capitalize %></li>
@@ -6,6 +6,10 @@
   <li>Category : <%= @dog.category.capitalize %></li>
   <li>Description : <%= @dog.description.capitalize %></li>
 </ul>
+
+<%# if policy(@Dog).edit? %>
+  <%#= link_to "Update", dog_path(@dog)%>
+<%# end %>
 
 <h3>Reviews</h3>
 

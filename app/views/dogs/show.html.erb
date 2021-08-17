@@ -1,6 +1,9 @@
 <h1><%= @dog.name.capitalize %>'s profil</h1>
 
 <ul>
+  <% @dog.photos.each do |photo| %>
+    <%= cl_image_tag photo.key %>
+  <% end %>
   <li>Breed : <%= @dog.breed.capitalize %></li>
   <li>Age : <%= @dog.age %></li>
   <li>Category : <%= @dog.category.capitalize %></li>

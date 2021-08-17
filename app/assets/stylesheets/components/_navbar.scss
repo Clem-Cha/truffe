@@ -1,12 +1,22 @@
-.navbar-lewagon {
+.navbar-truffe {
   justify-content: space-between;
   background: white;
+  height: 70px;
+  padding: 0px 20px;
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
+.navbar-brand img {
   width: 40px;
+}
+
+.fa-paw::before {
+  width: 40px;
+}
+
+.fa-paw {
+  text-decoration: none;
 }

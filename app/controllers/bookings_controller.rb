@@ -9,11 +9,9 @@ class BookingsController < ApplicationController
     # we need `restaurant_id` to associate booking with corresponding dog
     @dog = dog.find(params[:dog_id])
     @booking.dog = @dog
-    if @booking.save
-      redirect_to bookings_path
-    else
-      render :new
-    end
+    @booking.save
+    raise
+    redirect_to bookings_path
   end
 
   def edit

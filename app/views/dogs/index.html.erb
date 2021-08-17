@@ -1,7 +1,7 @@
 <h1>Find the next truffle</h1>
 
 <%= form_tag dogs_path, method: :get do %>
-    Category : <%= select_tag 'category',
+    Category : <%= select_tag :category,
                   options_for_select(Dog::DOG_CATEGORY)%>
     Breed :    <%= text_field_tag :breed,
                   params[:breed] %>

@@ -9,7 +9,7 @@ class BookingsController < ApplicationController
     @dog = Dog.find(params[:dog_id])
     @booking.dog = @dog
     @booking.user = current_user
-    @booking.status = "pending"
+    @booking.status = "approved"
     if @booking.save
       redirect_to bookings_path
     else

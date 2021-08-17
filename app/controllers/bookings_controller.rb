@@ -1,10 +1,11 @@
 class BookingsController < ApplicationController
   def index
-    @bookings = Booking.all
+    @bookings = policy_scope(Booking)
   end
 
   def create
     @booking = Booking.new(booking_params)
+    authorize @booking
     # we need `restaurant_id` to associate booking with corresponding dog
     @dog = dog.find(params[:dog_id])
     @booking.dog = @dog
@@ -21,6 +22,7 @@ class BookingsController < ApplicationController
 
   def update
     @booking = Booking.find(params[:id])
+    authorize @booking
     @booking.update(booking_params)
     redirect_to booking_path(@booking)
   end

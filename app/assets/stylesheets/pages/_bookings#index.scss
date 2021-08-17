@@ -1,9 +1,14 @@
-.main-booking-info {
+.main-booking-info{
   display: flex;
+  width: 500px;
   justify-content: space-between;
 }
+.main-booking-info-left {
+  display: flex;
+  list-style-type: none;
+  justify-content: space-between,
+}
 
-.main-booking-info-left,
 .main-booking-info-right {
   display: flex;
   list-style-type: none;

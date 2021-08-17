@@ -1,9 +1,18 @@
 class BookingsController < ApplicationController
-  def show
-    @booking = Booking.find(params[:id])
-    @user = User.find(@booking.user_id)
-    @dog = Dog.find(@booking.dog_id)
-    @review = Review.find(@booking.id)
+  def index
+    @bookings = Booking.all
+  end
+
+  def create
+    @booking = Booking.new(booking_params)
+    # we need `restaurant_id` to associate booking with corresponding dog
+    @dog = dog.find(params[:dog_id])
+    @booking.dog = @dog
+    if @booking.save
+      redirect_to bookings_path
+    else
+      render :new
+    end
   end
 
   def edit

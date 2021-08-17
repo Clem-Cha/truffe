@@ -48,8 +48,8 @@ puts "Creating 10 dogs seeds"
 end
 puts "Finish creating dogs seeds"
 
-puts "Creating 5 booking seeds"
-10.times do
+puts "Creating 100 booking seeds"
+50.times do
   Booking.create(
     start_date: Faker::Date.backward(days: 14),
     end_date: Faker::Date.forward(days: 23),

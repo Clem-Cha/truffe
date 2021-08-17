@@ -2,7 +2,8 @@ class DogsController < ApplicationController
 
   def index
     if params[:category] && params[:breed] && params[:start_date] && params[:end_date]
-      @dogs = Dog.where({ category: params[:category], breed: params[:breed], start_date: params[:start_date], end_date: params[:end_date]})
+      @dogs_dates = Dog.where("start_date >= ? AND end_date <= ?", params[:start_date], params[:end_date])
+      @dogs = Dog.where({ category: params[:category], breed: params[:breed]})
     else
       @dogs = Dog.all
     end

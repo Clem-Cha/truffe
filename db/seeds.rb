@@ -48,17 +48,17 @@ puts "Creating 20 dogs seeds"
 end
 puts "Finish creating dogs seeds"
 
-# puts "Creating 10 booking seeds"
-# 10.times do
-#   Booking.create(
-#     start_date: Faker::Date.backward(days: 14),
-#     end_date: Faker::Date.forward(days: 23),
-#     status: %w(pending approved rejected).sample,
-#     dog: Dog.order('RANDOM()').first,
-#     user: User.order('RANDOM()').first
-#   )
-# end
-# puts "Finish creating booking seeds"
+puts "Creating 50 booking seeds"
+50.times do
+  Booking.create(
+    start_date: Faker::Date.backward(days: 14),
+    end_date: Faker::Date.forward(days: 23),
+    status: %w(pending approved rejected).sample,
+    dog: Dog.order('RANDOM()').first,
+    user: User.order('RANDOM()').first
+  )
+end
+puts "Finish creating booking seeds"
 
 # puts "Creating 10 review seeds"
 # 10.times do

@@ -6,12 +6,15 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     authorize @booking
-    # we need `restaurant_id` to associate booking with corresponding dog
-    @dog = dog.find(params[:dog_id])
+    @dog = Dog.find(params[:dog_id])
     @booking.dog = @dog
-    @booking.save
-    raise
-    redirect_to bookings_path
+    @booking.user = current_user
+    @booking.status = "pending"
+    if @booking.save
+      redirect_to bookings_path
+    else
+      render 'dogs/show'
+    end
   end
 
   def edit

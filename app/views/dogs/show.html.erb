@@ -10,22 +10,34 @@
     <li>Category : <%= @dog.category.capitalize %></li>
     <li>Description : <%= @dog.description.capitalize %></li>
   </ul>
-  <%= render 'form', booking: @booking %>
   <hr>
   <h3>Reviews</h3>
   <ul>
+    <% if @dog.reviews.nil? %>
+      <small><em class="px-3">This dog has no reviews for now</em></small>
+    <% end %>
     <li>Average rating: <%= @aggregated_reviews %></li>
-    <% @reviews.each do |review| %>
-    <div class="card-product">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-      <div class="card-product-infos">
-        <h2><%= review.rating.nil? ? "No rating yet" : "#{review.rating}" %></h2>
-        <p><%= review.comment %></p>
+    <% @dog.reviews.each do |review| %>
+      <div class="card-product">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <div class="card-product-infos">
+          <h2><%= review.rating.nil? ? "No rating yet" : "#{review.rating}" %></h2>
+          <p><%= review.comment %></p>
+        </div>
       </div>
-    </div>
     <% end %>
   </ul>
   <%# if policy(@Dog).edit? %>
     <%#= link_to "Update", dog_path(@dog)%>
   <%# end %>
+  <div class="col-12 col-sm-6 my-3">
+    <div class="pb-3 px-3">
+      <h5>Book this dog</h5>
+        <%= simple_form_for [@dog, @booking] do |f| %>
+        <%= f.input :start_date, as: :date, html5: true %>
+        <%= f.input :end_date, as: :date, html5: true %>
+        <%= f.submit class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
 </div>

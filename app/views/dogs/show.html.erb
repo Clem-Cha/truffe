@@ -1,28 +1,34 @@
-<h1><%= @dog.name.capitalize %>'s profile</h1>
+<<<<<<< HEAD
+<div class="container">
+  <h1><%= @dog.name.capitalize %>'s profil</h1>
 
-<%= link_to "edit", edit_dog_path %>
+  <ul>
+    <% @dog.photos.each do |photo| %>
+      <%= cl_image_tag photo.key %>
+    <% end %>
+    <li>Breed : <%= @dog.breed.capitalize %></li>
+    <li>Age : <%= @dog.age %></li>
+    <li>Category : <%= @dog.category.capitalize %></li>
+    <li>Description : <%= @dog.description.capitalize %></li>
+  </ul>
 
-<ul>
-  <% @dog.photos.each do |photo| %>
-    <%= cl_image_tag photo.key %>
-  <% end %>
-  <li>Breed : <%= @dog.breed.capitalize %></li>
-  <li>Age : <%= @dog.age %></li>
-  <li>Category : <%= @dog.category.capitalize %></li>
-  <li>Description : <%= @dog.description.capitalize %></li>
-</ul>
-
-<%# if policy(@Dog).edit? %>
-  <%#= link_to "Update", dog_path(@dog)%>
-<%# end %>
-
-<h3>Reviews</h3>
-
-<%# <ul> %>
-  <%# @dog.reviews.each do |review| %>
-    <li><%#= review.comment %> <%#= review.rating %>/10</li>
+  <h3>Reviews</h3>
+  <ul>
+    <li>Average rating: <%= @aggregated_reviews %></li>
+    <hr>
+    <% @reviews.each do |review| %>
+    <div class="card-product">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <div class="card-product-infos">
+        <h2><%= review.rating.nil? ? "No rating yet" : "#{review.rating}" %></h2>
+        <p><%= review.comment %></p>
+      </div>
+    </div>
+    <% end %>
+  </ul>
+  <%= link_to "edit", edit_dog_path %>
+  <%= link_to "Book this Truffle",  dog_bookings_path(@dog) %>
+  <%# if policy(@Dog).edit? %>
+    <%#= link_to "Update", dog_path(@dog)%>
   <%# end %>
-<%# </ul> %>
-
-<%= link_to "Back to homepage", root_path %>
-<%= link_to "Book this Truffle",  dog_bookings_path(@dog) %>
+</div>

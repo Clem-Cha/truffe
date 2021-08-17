@@ -17,4 +17,15 @@
   <h1>Bookings Category</h1>
   <h1>Bookings Rating</h1>
   <h1>Bookings Map</h1>
+
+<div class="col-12 col-sm-6 my-3">
+    <div class="pb-3 px-3">
+      <h5>Add your review</h5>
+      <%= simple_form_for [@booking, @review] do |f| %>
+        <%= f.input :comment, placeholder: 'Add your review' %>
+        <%= f.input :rating %>
+        <%= f.submit class:'btn btn-flat' %>
+      <% end %>
+    </div>
+  </div>
 </div>

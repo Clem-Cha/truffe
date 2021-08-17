@@ -1,16 +1,36 @@
-.main-booking-info{
+.booking-card{
   display: flex;
+  background-color: white;
+  border-radius: 10px;
   width: 500px;
-  justify-content: space-between;
-}
-.main-booking-info-left {
-  display: flex;
-  list-style-type: none;
-  justify-content: space-between,
+  height: 100px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  h4 {
+    margin: 0px;
+    padding: 0px;
+  }
+  p {
+    margin: 0px;
+    padding: 0px;
+  }
 }
 
-.main-booking-info-right {
+.booking-card-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.booking-card-content {
+  padding: 10px;
   display: flex;
-  list-style-type: none;
-  justify-content: space-between,
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.booking-card-pending {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
 }

@@ -1,66 +1,92 @@
 
 <div class="container">
-  <h1>Your Bookings: </h1>
+  <h1>Your Bookings</h1>
   <div class="row">
-    <div class="class col-12">
-      <% @bookings.each_with_index do |booking, index| %>
+    <div class="col-12 col-sm-6 my-3">
+      <% @bookings_approved.each_with_index do |booking, index| %>
         <% dog = Dog.find(booking.dog_id) %>
-        <% user = User.find(booking.user_id) %>
+        <% user = User.find(dog.user_id) %>
         <% review = Review.new %>
-        <div class="main-booking-info">
-          <div class="main-booking-info-left">
-            <li><%= dog.name %></li>
-            <li><%= user.first_name %></li>
-            <li><%= booking.status %></li>
-          </div>
-          <div class="main-booking-info-right">
-            <div>
-              <li><%= booking.start_date %></li>
-              <li><%= booking.end_date %></li>
-            </div>
-            <li class="btn btn-primary">details</li>
-          </div>
-        </div>
-        <% if booking.status == "approved" && booking.reviews.length == 0 %>
-          <div class="col-12 col-sm-6 my-3">
-            <div class="pb-3 px-3">
-              <h5>Add your review</h5>
-              <%= simple_form_for [booking, review] do |f| %>
-                <%= f.input :comment, placeholder: 'Add your review' %>
-                <%= f.input :rating %>
-                <%= f.submit class:'btn btn-flat' %>
+        <div class="booking-card">
+          <% if dog.photos.attached? %>
+            <%= cl_image_tag dog.photos[0].key, class:"booking-card-image" %>
+          <% else %>
+            <%= image_tag 'home.jpg', class:"booking-card-image" %>
+          <% end %>
+          <div class="booking-card-content">
+            <div class="booking-card-title">
+              <h4><%= dog.name %></h4>
+              <% if booking.reviews.length != 0 %>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#review-modal<%=index%>">
+                  See your review
+                </button>
+              <% elsif booking.status == "approved" %>
+                <%= link_to "Create a review", new_booking_review_path(booking) %>
               <% end %>
             </div>
+            <div class="booking-card-dates">
+              <div>
+                <p>from <strong><%= booking.start_date %></strong></p>
+                <p>to <strong><%= booking.end_date %></strong></p>
+              </div>
+            </div>
           </div>
-        <% else %>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#review-modal<%=index%>">
-            See your review
-          </button>
-          <div class="modal fade" id="review-modal<%=index%>" tabindex="-1" role="dialog" aria-labelledby="review-modalTitle" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="review-modalTitle<%=index%>">Your review</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">                 
-                  <% if booking.reviews == [] %>
-                    <small><em class="px-3">You didn't put any review for now</em></small>
-                  <% else %>
-                    <%= booking.reviews[0].comment %>
-                  <% end %>                  
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+
+        <div class="modal fade" id="review-modal<%=index%>" tabindex="-1" role="dialog" aria-labelledby="review-modalTitle" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="review-modalTitle<%=index%>">Your review</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">                 
+                <% if booking.reviews == [] %>
+                  <small><em class="px-3">You didn't put any review for now</em></small>
+                <% else %>
+                  <%= booking.reviews[0].comment %>
+                <% end %>                  
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-12 col-sm-6 my-3">
+      <div class="booking-card-pending">
+        <h2>Pending Bookings</h2>
+        <% @bookings_pending.each do |booking| %>
+          <% dog = Dog.find(booking.dog_id) %>
+          <% user = User.find(dog.user_id) %>
+          <div class="booking-card">
+            <% if dog.photos.attached? %>
+              <%= cl_image_tag dog.photos[0].key, class:"booking-card-image" %>
+            <% else %>
+              <%= image_tag 'home.jpg', class:"booking-card-image" %>
+            <% end %>
+            <div class="booking-card-content">
+              <div class="booking-card-title">
+                <h4><%= dog.name %></h4>
+                <p><%= user.first_name %></p>
+                <%= booking.status %>
+              </div>
+              <div class="booking-card-dates">
+                <div>
+                  <p>from <strong><%= booking.start_date %></strong></p>
+                  <p>to <strong><%= booking.end_date %></strong></p>
                 </div>
               </div>
             </div>
           </div>
-        <% end %>
-      <% end %>
+         <% end %>
+      </div>
     </div>
+
   </div>
 </div>
 

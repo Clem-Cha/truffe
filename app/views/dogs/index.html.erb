@@ -1,5 +1,19 @@
 <h1>Find the next truffle</h1>
 
+<%= form_tag dogs_path, method: :get do %>
+    Category : <%= select_tag 'category',
+                  options_for_select(Dog::DOG_CATEGORY)%>
+    Breed :    <%= text_field_tag :breed,
+                  params[:breed] %>
+    Start date : <%= date_field_tag :start_date,
+                  params[:start_date] %>
+    End date :  <%= date_field_tag :end_date,
+                  params[:end_date] %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+
+<h2>Available truffle</h2>
+
 <ul>
   <% @dogs.each do |dog| %>
     <div>
@@ -8,8 +22,12 @@
     <%= dog.category %> •
     <%= dog.age %> years old<br>
     <%= dog.description %>
+    <%= dog.start_date %>
+    <%= dog.end_date %>
     </div>
   <% end %>
 </ul>
 
+
 <%= link_to "Back to homepage", root_path %>
+<%= link_to "Add a dog", new_dog_path %>

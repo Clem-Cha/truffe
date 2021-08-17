@@ -7,11 +7,13 @@ class DogsController < ApplicationController
     else
       @dogs = policy_scope(Dog)
     end
-  end 
+  end
 
   def show
     @dog = Dog.find(params[:id])
     authorize @dog
+    @reviews = @dog.reviews
+    @aggregated_reviews = @reviews.sum(:rating) / @reviews.size
   end
 
   def new

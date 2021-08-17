@@ -24,7 +24,7 @@
 .btn-flat {
   color: white;
   padding: 8px 24px;
-  border-radius: 4px;
+  border-radius: 15px;
   background: #1EDD88;
   transition: background 0.3s ease;
 }
@@ -45,5 +45,22 @@
   background-color: white;
   p {
     margin-bottom: 0px;
+  }
+}
+
+.search-bar-item {
+  border-right:1px solid rgb(226, 225, 225);
+  padding-right: 35px;
+
+  select {
+    word-wrap: break-word;
+    border: 1px solid #e6e6e6;
+    font-size: 14px;
+  }
+
+  input {
+    word-wrap: break-word;
+    border: 1px solid #e6e6e6;
+    font-size: 14px;
   }
 }

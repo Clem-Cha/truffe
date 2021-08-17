@@ -1,16 +1,8 @@
 <h1>Find the next truffle</h1>
 
-<%= form_tag dogs_path, method: :get do %>
-    Category : <%= select_tag :category,
-                  options_for_select(Dog::DOG_CATEGORY, selected: params[:category]), :include_blank => true %>
-    Breed :    <%= select_tag :breed,
-                   options_for_select(Dog.all.pluck(:breed).uniq, selected: params[:breed]), :include_blank => true %>
-    Start date : <%= date_field_tag :start_date,
-                  params[:start_date] %>
-    End date :  <%= date_field_tag :end_date,
-                  params[:end_date] %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
+
+<%= render "shared/searchbar" %>
+
 
 <h2>Available truffle</h2>
 

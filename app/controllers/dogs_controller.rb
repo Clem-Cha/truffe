@@ -1,10 +1,17 @@
 class DogsController < ApplicationController
+
   def index
-    @dogs = policy_scope(Dog)
-  end
+    if params[:category] && params[:breed] && params[:start_date] && params[:end_date]
+      @dogs_dates = Dog.where("start_date >= ? AND end_date <= ?", params[:start_date], params[:end_date])
+      @dogs = Dog.where({ category: params[:category], breed: params[:breed]})
+    else
+      @dogs = policy_scope(Dog)
+    end
+  end 
 
   def show
     @dog = Dog.find(params[:id])
+    authorize @dog
   end
 
   def new
@@ -15,7 +22,6 @@ class DogsController < ApplicationController
     @dog = Dog.new(dog_params)
     authorize @dog
     @dog.user = current_user
-
     if @dog.save
       redirect_to dog_path(@dog)
     else
@@ -36,6 +42,6 @@ class DogsController < ApplicationController
 
   private
   def dog_params
-    params.require(:dog).permit(:name, :age, :breed, :category, :description, :start_date, :end_date, photos: [])
+    params.require(:dog).permit(:breed, :category, :start_date, :end_date)
   end
 end

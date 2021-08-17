@@ -5,6 +5,8 @@ class DogsController < ApplicationController
 
   def show
     @dog = Dog.find(params[:id])
+    @reviews = @dog.reviews
+    @aggregated_reviews = @reviews.sum(:rating) / @reviews.size
   end
 
   def new

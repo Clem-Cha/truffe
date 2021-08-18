@@ -9,6 +9,9 @@
 
   <div class="collapse navbar-collapse">
     <ul class="navbar-nav">
+      <li class="nav-item">
+        <%= link_to "My bookings", bookings_path, class: "nav-link" %>
+      </li>
       <% if user_signed_in? %>
         <div class="dropdown show">
           <a class="profile dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

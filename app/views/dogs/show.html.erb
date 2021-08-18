@@ -68,12 +68,12 @@
     <%# end %>
   <div class="container card-style">
     <div class="col-12 col-sm-6 my-3">
-      <div class="pb-3 px-3">
+      <div class="form">
         <h5>Book this dog</h5>
           <%= simple_form_for [@dog, @booking] do |f| %>
           <%= f.input :start_date, as: :date, html5: true, class: "form-control-sm" %>
           <%= f.input :end_date, as: :date, html5: true, class: "form-control-sm" %>
-          <%= f.submit class: "btn btn-primary btn-color" %>
+          <%= f.submit class: "button-first" %>
         <% end %>
       </div>
     </div>

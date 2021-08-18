@@ -1,3 +1,7 @@
+.navbar {
+  z-index: 100;
+}
+
 .navbar-truffe {
   justify-content: space-between;
   background: white;
@@ -14,6 +18,7 @@
 }
 
 .profile {
+  cursor: pointer;
   display: flex;
   box-shadow: 0 0 10px rgba(0,0,0,0.05);
   padding: 5px 10px;
@@ -27,10 +32,14 @@
   }
   i {
     margin-left: 5px;
+    color: black;
   }
 }
 .dropdown-toggle::after {
   display: none;
+}
+.dropdown-menu {
+  right: -10px;
 }
 
 .avatar {
@@ -44,21 +53,6 @@
   border-radius: 50%;
   align-items: center;
 }
-
-.align {
-  align-items: center;
-}
-
-.flex{
-  .nav-link {
-    padding: 1rem 1rem;
-  }
-}
-
-.list-limit {
-  right: -21px;
-}
-
 
 .navbar {
   .navbar-nav {

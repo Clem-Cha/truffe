@@ -6,11 +6,13 @@
   <ul>
     <div class="flex justify-content-between">
       <div class="flex">
+
         ⭐ <% if @aggregated_reviews.nil? == true %> <%= "no reviews yet" %>
         <% else %> <%= @aggregated_reviews %> <% end %>
         🐕 <%= @dog.breed.capitalize %>
         ⏳ <%= @dog.age %> y.o.
         🦴 <%= @dog.category.capitalize %>
+
       </div>
       <li><em>"<%= @dog.description.capitalize %>"</em></li>
     </div>
@@ -37,8 +39,10 @@
         <% @dog.reviews.each do |review| %>
           <div class="card-product">
             <div class="card-product-infos">
+
               <h2><%= review.booking.user.first_name %></h2>
               <h2><%= review.rating.nil? ? "No rating yet" : "#{review.rating} / 10" %></h2>
+
               <p><%= review.comment %></p>
             </div>
           </div>

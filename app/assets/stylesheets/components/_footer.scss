@@ -11,8 +11,11 @@
   color: #9BC4F7;
   vertical-align: middle;
 }
-.footer-logo {
+#footer-logo {
+  margin: 0px;
+  padding: 0px;
   margin-right: 15px;
+  margin-bottom: 60px;
 }
 .footer .fa-paw {
   color: #9AC4F8;
@@ -20,10 +23,12 @@
 
 a {
   text-decoration: none;
-  margin-right: 90px;
-  margin-bottom: 70px;
   font-weight: bolder;
   color:  #9BC4F7;
+}
+.footer a {
+  margin-right: 90px;
+  margin-bottom: 70px;
 }
 .footer .social-media {
   height: 40px;
@@ -32,11 +37,11 @@ a {
 }
 
 
-li {
+.footer li {
 
 }
 
-.center {
+.footer .center {
   margin: auto;
 }
 

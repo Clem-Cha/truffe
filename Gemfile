@@ -5,6 +5,8 @@ ruby '2.7.3'
 
 # Adding authorization
 gem 'pundit'
+# Adding geocoder
+gem 'geocoder'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.0.4'

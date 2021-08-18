@@ -1,10 +1,10 @@
-<h1>Find the next truffle</h1>
-
-
 <%= render "shared/searchbar" %>
+<div class="row">
+  <div class="dog-page flex">
+    <div class="col-8">
 
-
-<h2>Available truffle</h2>
+      <h2>Available truffle</h2>
+      <p>These are all the available truffles in your neighbourhood.</p>
 
 <% @dogs.each do |dog| %>
   <div class="card-product-dog">
@@ -43,4 +43,10 @@
       <%= dog.end_date %></h6>
     </div>
   </div>
-  <% end %>
+<% end %>
+<div id="map"
+  class="col-8"
+  style="width: 480px; height: 100vh;"
+  data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>

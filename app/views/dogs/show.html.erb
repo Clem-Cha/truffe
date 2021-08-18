@@ -37,10 +37,8 @@
         <% @dog.reviews.each do |review| %>
           <div class="card-product">
             <div class="card-product-infos">
-              <div>
-                <h2><%= review.booking.user.first_name %></h2>
-                <h2><%= review.rating.nil? ? "No rating yet" : "#{review.rating} / 5" %></h2>
-              </div>
+              <h2><%= review.booking.user.first_name %></h2>
+              <h2><%= review.rating.nil? ? "No rating yet" : "#{review.rating} / 5" %></h2>
               <p><%= review.comment %></p>
             </div>
           </div>

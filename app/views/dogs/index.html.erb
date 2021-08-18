@@ -5,6 +5,7 @@
     <div class="col-8">
       <h2 id="index-header" style="margin-left: 50px; margin-top: 125px;">All available truffles</h2>
       <p style="margin-left: 50px">These are all the available truffles in your neighbourhood.</p>
+
       <% @dogs.each do |dog| %>
         <div class="card-product-dog">
           <% if dog.photos.attached? %>

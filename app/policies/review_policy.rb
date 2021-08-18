@@ -5,6 +5,10 @@ class ReviewPolicy < ApplicationPolicy
     end
   end
 
+  def true?
+    return true
+  end
+
   def create?
     true
   end

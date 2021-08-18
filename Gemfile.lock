@@ -130,19 +130,11 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2021.0704)
     mini_mime (1.1.0)
-<<<<<<< HEAD
-    mini_portile2 (2.6.1)
-=======
->>>>>>> 41a64cf767e1951660fb3b86cb122d6d11d62f20
     minitest (5.14.4)
     msgpack (1.4.2)
     netrc (0.11.0)
     nio4r (2.5.8)
-<<<<<<< HEAD
-    nokogiri (1.12.3)
-      mini_portile2 (~> 2.6.1)
-=======
->>>>>>> 41a64cf767e1951660fb3b86cb122d6d11d62f20
+    nokogiri (1.12.3-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pg (1.2.3)
@@ -265,12 +257,9 @@ GEM
       nokogiri (~> 1.8)
     zeitwerk (2.4.2)
 
-<<<<<<< HEAD
 PLATFORMS
-  ruby
+  x86_64-linux
 
-=======
->>>>>>> 41a64cf767e1951660fb3b86cb122d6d11d62f20
 DEPENDENCIES
   autoprefixer-rails (= 10.2.5)
   bootsnap (>= 1.4.2)
@@ -304,8 +293,4 @@ RUBY VERSION
    ruby 2.7.3p183
 
 BUNDLED WITH
-<<<<<<< HEAD
-   2.1.4
-=======
    2.2.21
->>>>>>> 41a64cf767e1951660fb3b86cb122d6d11d62f20

@@ -4,9 +4,6 @@
   <h1>🐶 Welcome to <%= @dog.name.capitalize %> world 🐶</h1>
 
   <ul>
-    <% @dog.photos.each do |photo| %>
-      <%= cl_image_tag photo.key %>
-    <% end %>
     <div class="flex justify-content-between">
       <div class="flex">
         <li>⭐ <% if @aggregated_reviews.nil? == true %> <%= "no reviews yet" %>
@@ -19,27 +16,12 @@
     </div>
   </ul>
   <hr>
-  <%# <div class="row">
-    <div class="flex">
-      <div class= "col-6">
-        <img class="front-picture" src="https://a0.muscache.com/im/pictures/5cac9e7b-8b9f-4e56-8746-3e73ff2bf52e.jpg?im_w=720" style="object-fit: cover;">
-      </div>
-      <div class= "col">
-        <img class="mid-picture" src="https://a0.muscache.com/im/pictures/dbc5696f-5d1c-4632-b5a8-197f27a11348.jpg?im_w=720" style="object-fit: cover; vertical-align: bottom;">
-        <%# <img class="mid-picture" src="https://a0.muscache.com/im/pictures/dbc5696f-5d1c-4632-b5a8-197f27a11348.jpg?im_w=720" style="object-fit: cover; vertical-align: bottom;"> %>
-      <%# </div>
-      <div class= "col">
-        <img class="side-picture-top" src="https://a0.muscache.com/im/pictures/dbc5696f-5d1c-4632-b5a8-197f27a11348.jpg?im_w=720" style="object-fit: cover; vertical-align: bottom;"> %>
-        <%# <img class="side-picture-bottom" src="https://a0.muscache.com/im/pictures/dbc5696f-5d1c-4632-b5a8-197f27a11348.jpg?im_w=720" style="object-fit: cover; vertical-align: bottom;"> %>
-      <%# </div>
-    </div>
-  </div> %>
 
   <div class="big-picture">
-    <img src="https://a0.muscache.com/im/pictures/5cac9e7b-8b9f-4e56-8746-3e73ff2bf52e.jpg?im_w=720" style="object-fit: cover;">
+    <%= cl_image_tag @dog.photos[0].key %>
       <div class="small-picture">
-        <img class="first" src="https://a0.muscache.com/im/pictures/dbc5696f-5d1c-4632-b5a8-197f27a11348.jpg?im_w=720" style="object-fit: cover; vertical-align: bottom;">
-        <img class="first" src="https://a0.muscache.com/im/pictures/dbc5696f-5d1c-4632-b5a8-197f27a11348.jpg?im_w=720" style="object-fit: cover; vertical-align: bottom;">
+          <%= cl_image_tag @dog.photos[1].key %>
+          <%= cl_image_tag @dog.photos[2].key %>
       </div>
   </div>
 
@@ -67,7 +49,7 @@
     <%# end %>
   <hr>
   <h5>🐶 Book <strong><%= @dog.name.capitalize %></strong> 🐶</h5>
-    <div class="container card-style">
+    <div class="container card-style" style="margin-bottom:12px">
       <div >
         <div class="form">
           <%= simple_form_for [@dog, @booking] do |f| %>

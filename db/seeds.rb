@@ -18,6 +18,19 @@ User.destroy_all
 
 
 puts "Creating 10 user seeds"
+User.create(
+    email: "test@gmail.com",
+    first_name: "Jicama",
+    last_name: "Team",
+    phone_number: Faker::PhoneNumber.cell_phone,
+    description: Faker::Quote.famous_last_words,
+    street: Faker::Address.street_address,
+    city: Faker::Address.city,
+    zipcode: '75020',
+    password: "123456",
+    password_confirmation: "123456"
+)
+
 10.times do
   user = User.new(
     email: Faker::Internet.email,

@@ -37,18 +37,22 @@
 
   <hr>
     <ul>
-      <% if @dog.reviews.nil? %>
-        <small><em class="px-3">This dog has no reviews for now</em></small>
-      <% end %>
-      <h3>Reviews</h3>
-      <% @dog.reviews.each do |review| %>
-        <div class="card-product">
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-          <div class="card-product-infos">
-            <h2><%= review.rating.nil? ? "No rating yet" : "#{review.rating}" %></h2>
-            <p><%= review.comment %></p>
+      <% if @aggregated_reviews.nan? == true %>
+        <%= "" %>
+      <% else %>
+        <%# if @dog.reviews.nil? %>
+          <%# <small><em class="px-3">This dog has no reviews for now</em></small> %>
+        <%# end %>
+        <h3>Reviews</h3>
+        <% @dog.reviews.each do |review| %>
+          <div class="card-product">
+            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+            <div class="card-product-infos">
+              <h2><%= review.rating.nil? ? "No rating yet" : "#{review.rating}" %></h2>
+              <p><%= review.comment %></p>
+            </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
     </ul>
     <%# if policy(@Dog).edit? %>
@@ -59,8 +63,8 @@
       <div class="pb-3 px-3">
         <h5>Book this dog</h5>
           <%= simple_form_for [@dog, @booking] do |f| %>
-          <%= f.input :start_date, as: :date, html5: true %>
-          <%= f.input :end_date, as: :date, html5: true %>
+          <%= f.input :start_date, as: :date, html5: true, class: "form-control-sm" %>
+          <%= f.input :end_date, as: :date, html5: true, class: "form-control-sm" %>
           <%= f.submit class: "btn btn-primary btn-color" %>
         <% end %>
       </div>

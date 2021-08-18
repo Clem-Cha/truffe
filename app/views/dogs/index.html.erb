@@ -1,22 +1,31 @@
-<h1>Find the next truffle</h1>
-
-
 <%= render "shared/searchbar" %>
+<div class="row">
+  <div class="dog-page flex">
+    <div class="col-8">
 
+      <h2>Available truffle</h2>
+      <p>These are all the available truffles in your neighbourhood.</p>
 
-<h2>Available truffle</h2>
-
-<% @dogs.each do |dog| %>
-  <div class="card-product-dog">
-    <img src="https://source.unsplash.com/random"/>
-    <div class="card-product-infos-dog">
-      <h2><%= link_to dog.name, dog_path(dog) %></h2>
-      <h6><%= dog.breed %> •
-      <%= dog.category.capitalize %> •
-      <%= dog.age %> years old<br></h6>
-      <p><%= dog.description %></p>
-      <h6>Available from <%= dog.start_date %> to
-      <%= dog.end_date %></h6>
+      <% @dogs.each do |dog| %>
+        <div class="card-product-dog">
+          <img src="https://source.unsplash.com/random"/>
+          <div class="card-product-infos-dog">
+            <h2><%= link_to dog.name, dog_path(dog) %></h2>
+            <h6><%= dog.breed %> •
+            <%= dog.category.capitalize %> •
+            <%= dog.age %> years old<br></h6>
+            <p><%= dog.description %></p>
+            <h6>Available from <%= dog.start_date %> to
+            <%= dog.end_date %></h6>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div id="map"
+      class="col-8"
+      style="width: 480px; height: 100vh;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   </div>
-  <% end %>
+</div>

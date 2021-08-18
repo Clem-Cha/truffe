@@ -1,6 +1,7 @@
 <%= render "shared/searchbar" %>
-<div class="row">
-  <div class="dog-page flex">
+
+  <div class="dog-page">
+    <div class="row">
     <div class="col-8">
 
       <h2>Available truffle</h2>
@@ -44,12 +45,12 @@
             </div>
         </div>
       <% end %>
-      <div id="map"
-        class="col-8"
-        style="width: 480px; height: 100vh;"
-        data-markers="<%= @markers.to_json %>"
-        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-      </div>
+    </div>
+    <div id="map"
+      class="col-4"
+      style="width: 480px; height: 100vh;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   </div>
 </div>

@@ -46,7 +46,8 @@ count = 1
     description: Faker::TvShows::BigBangTheory.quote,
     start_date: Faker::Date.backward(days: 14),
     end_date: Faker::Date.forward(days: 23),
-    user: User.order('RANDOM()').first
+    user: User.order('RANDOM()').first,
+    address: (1..300).to_a.sample.to_s + " " + ["Rue de Vaugirard, Paris", "Avenue des Champs-Élysées, Paris", "bd de belleville, Paris", "bd voltaire, paris", "bd saint-germain, paris"].sample
   )
   dog.photos.attach(io: File.open("app/assets/images/dog#{count}_1.jpeg"), filename: 'dog-photo.png')
   dog.photos.attach(io: File.open("app/assets/images/dog#{count}_2.jpeg"), filename: 'dog-photo.png')

@@ -10,14 +10,15 @@
   <div class="collapse navbar-collapse">
     <ul class="navbar-nav">
       <% if user_signed_in? %>
-        <div class="profile dropdown-toggle" id="navbarDropdown" data-toggle= "dropdown">
-          <div class="dropdown-menu dropdown-menu-right list-limit" aria-labelledby="navbarDropdown">
+        <div class="dropdown show">
+          <a class="profile dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-align-justify"></i>
+            <%= image_tag "empty-profile", class: "avatar" %>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
             <%= link_to "Update profile", edit_user_registration_path, class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
-          <i class="fas fa-align-justify"></i>
-          <%= image_tag "empty-profile", class: "avatar" %>
-        </div>
       <% else %>
         <li class="nav-item">
           <%= link_to "Login", new_user_session_path, class: "nav-link" %>

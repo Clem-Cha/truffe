@@ -17,11 +17,11 @@
             <div class="booking-card-title">
               <h4><%= dog.name %></h4>
               <% if booking.reviews.length != 0 %>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#review-modal<%=index%>">
+                <button type="button" class="button-second" data-toggle="modal" data-target="#review-modal<%=index%>">
                   See your review
                 </button>
               <% elsif booking.status == "approved" %>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create-review-modal<%=index%>">
+                <button type="button" class="button-second" data-toggle="modal" data-target="#create-review-modal<%=index%>">
                   Create a review
                 </button>
               <% end %>
@@ -73,7 +73,7 @@
                     <%= simple_form_for [booking, review] do |f| %>
                       <%= f.input :comment, placeholder: 'Add your review' %>
                       <%= f.input :rating %>
-                      <%= f.submit class:'btn btn-flat' %>
+                      <%= f.submit class:'button-first' %>
                     <% end %>
                   </div>
                 </div>               

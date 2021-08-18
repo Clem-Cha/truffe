@@ -54,12 +54,12 @@
     <%#= link_to "Update", dog_path(@dog)%>
   <%# end %>
   <div class="col-12 col-sm-6 my-3">
-    <div class="pb-3 px-3">
+    <div class="form">
       <h5>Book this dog</h5>
         <%= simple_form_for [@dog, @booking] do |f| %>
-        <%= f.input :start_date, as: :date, html5: true %>
-        <%= f.input :end_date, as: :date, html5: true %>
-        <%= f.submit class: "btn btn-primary" %>
+        <%= f.input :start_date, as: :date, html5: true  %>
+        <%= f.input :end_date, as: :date, html5: true  %>
+        <%= f.submit class: "button-first" %>
       <% end %>
     </div>
   </div>

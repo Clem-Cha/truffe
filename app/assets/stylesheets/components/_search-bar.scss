@@ -1,5 +1,10 @@
 .search-form-control {
   margin: 30px 100px;
+  position: fixed;
+  top: 8px;
+  left: -20px;
+  z-index: 100;
+  width: 85%;
 }
 
 .search-form-control .btn {

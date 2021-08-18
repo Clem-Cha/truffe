@@ -12,7 +12,7 @@ class ReviewsController < ApplicationController
     authorize @review
     @review.booking = @booking
     @review.save
-    redirect_to booking_path(@booking)
+    redirect_to bookings_path
   end
 
   private

@@ -17,11 +17,13 @@
             <div class="booking-card-title">
               <h4><%= dog.name %></h4>
               <% if booking.reviews.length != 0 %>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#review-modal<%=index%>">
+                <button type="button" class="button-second" data-toggle="modal" data-target="#review-modal<%=index%>">
                   See your review
                 </button>
               <% elsif booking.status == "approved" %>
-                <%= link_to "Create a review", new_booking_review_path(booking) %>
+                <button type="button" class="button-second" data-toggle="modal" data-target="#create-review-modal<%=index%>">
+                  Create a review
+                </button>
               <% end %>
             </div>
             <div class="booking-card-dates">
@@ -55,6 +57,34 @@
             </div>
           </div>
         </div>
+
+        <div class="modal fade" id="create-review-modal<%=index%>" tabindex="-1" role="dialog" aria-labelledby="review-modalTitle" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="create-review-modalTitle<%=index%>">Add your review</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">                 
+                <div class="col-12 col-sm-6 my-3">
+                  <div class="pb-3 px-3">
+                    <%= simple_form_for [booking, review] do |f| %>
+                      <%= f.input :comment, placeholder: 'Add your review' %>
+                      <%= f.input :rating %>
+                      <%= f.submit class:'button-first' %>
+                    <% end %>
+                  </div>
+                </div>               
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
       <% end %>
     </div>
     <div class="col-12 col-sm-6 my-3">

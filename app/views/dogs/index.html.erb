@@ -6,26 +6,47 @@
       <h2>Available truffle</h2>
       <p>These are all the available truffles in your neighbourhood.</p>
 
-      <% @dogs.each do |dog| %>
-        <div class="card-product-dog">
-          <img src="https://source.unsplash.com/random"/>
-          <div class="card-product-infos-dog">
-            <h2><%= link_to dog.name, dog_path(dog) %></h2>
-            <h6><%= dog.breed %> •
-            <%= dog.category.capitalize %> •
-            <%= dog.age %> years old<br></h6>
-            <p><%= dog.description %></p>
-            <h6>Available from <%= dog.start_date %> to
-            <%= dog.end_date %></h6>
-          </div>
+<% @dogs.each do |dog| %>
+  <div class="card-product-dog">
+  <% if dog.photos.attached? %>
+    <div id="name-<%= dog.id %>" class="carousel slide carousel-fade" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <%= cl_image_tag dog.photos[0].key, crop: :fill %>
         </div>
-      <% end %>
+        <div class="carousel-item">
+          <%= cl_image_tag dog.photos[1].key, crop: :fill %>
+        </div>
+        <div class="carousel-item">
+          <%= cl_image_tag dog.photos[2].key, crop: :fill %>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#name-<%= dog.id %>" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#name-<%= dog.id %>" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
-    <div id="map"
-      class="col-8"
-      style="width: 480px; height: 100vh;"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  <% else %>
+    <img src="https://source.unsplash.com/random"/>
+  <% end %>
+    <div class="card-product-infos-dog">
+      <h2><%= link_to dog.name, dog_path(dog) %></h2>
+      <h6><%= dog.breed %> •
+      <%= dog.category.capitalize %> •
+      <%= dog.age %> years old<br></h6>
+      <p><%= dog.description %></p>
+      <h6>Available from <%= dog.start_date %> to
+      <%= dog.end_date %></h6>
     </div>
   </div>
+<% end %>
+<div id="map"
+  class="col-8"
+  style="width: 480px; height: 100vh;"
+  data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>

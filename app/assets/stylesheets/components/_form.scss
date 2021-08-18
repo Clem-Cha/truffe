@@ -1,0 +1,12 @@
+.form {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  .form-control {
+    margin: 10px 0px;  
+  }
+  label {
+    padding-left: 10px; 
+  }
+}

@@ -46,7 +46,11 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                  <%= booking.reviews[0].comment %>
+                  <% if booking.reviews == [] %>
+                    <small><em class="px-3">You didn't put any review for now</em></small>
+                  <% else %>
+                    <%= booking.reviews[0].comment %>
+                  <% end %>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="button-second" data-dismiss="modal">Close</button>

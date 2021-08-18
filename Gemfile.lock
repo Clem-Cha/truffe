@@ -136,15 +136,8 @@ GEM
     msgpack (1.4.2)
     netrc (0.11.0)
     nio4r (2.5.8)
-<<<<<<< HEAD
     nokogiri (1.12.3)
       mini_portile2 (~> 2.6.1)
-=======
-
-    nokogiri (1.12.3)
-      mini_portile2 (~> 2.6.1)
-
->>>>>>> 125af04cd3e42203b0966964299019f4e63325f8
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pg (1.2.3)

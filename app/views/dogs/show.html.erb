@@ -1,16 +1,16 @@
 <%= render "shared/searchbar" %>
 
-<div class="container dog-show">
-  <h1>🐶 Welcome to <%= @dog.name.capitalize %> world 🐶</h1>
+<div id="top-page" class="container dog-show">
+  <h1>🐶 Welcome to <%= @dog.name.capitalize %>'s world 🐶</h1>
 
   <ul>
     <div class="flex justify-content-between">
       <div class="flex">
-        <li>⭐ <% if @aggregated_reviews.nil? == true %> <%= "no reviews yet" %>
-        <% else %> <%= @aggregated_reviews %> <% end %> </li>
-        <li>🐕 <%= @dog.breed.capitalize %></li>
-        <li>⏳ <%= @dog.age %> y.o.</li>
-        <li>🦴 <%= @dog.category.capitalize %></li>
+        ⭐ <% if @aggregated_reviews.nil? == true %> <%= "no reviews yet" %>
+        <% else %> <%= @aggregated_reviews %> <% end %>
+        🐕 <%= @dog.breed.capitalize %>
+        ⏳ <%= @dog.age %> y.o.
+        🦴 <%= @dog.category.capitalize %>
       </div>
       <li><em>"<%= @dog.description.capitalize %>"</em></li>
     </div>

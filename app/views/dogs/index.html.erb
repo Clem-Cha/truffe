@@ -1,11 +1,11 @@
-<h1 style="margin:0px 50px">Find the next truffle</h1>
-
 <%= render "shared/searchbar" %>
-<div class="row">
-  <div class="dog-page flex">
+<div class="dog-page">
+  <div class="row">
+
     <div class="col-8">
-      <h2 style="margin: 30px">Available truffle</h2>
-      <p style="margin: 30px">These are all the available truffles in your neighbourhood.</p>
+      <h2 id="index-header" style="margin-left: 50px; margin-top: 125px;">All available truffles</h2>
+      <p style="margin-left: 50px">These are all the available truffles in your neighbourhood.</p>
+
       <% @dogs.each do |dog| %>
         <div class="card-product-dog">
           <% if dog.photos.attached? %>
@@ -44,9 +44,10 @@
             </div>
         </div>
       <% end %>
+    </div>
+    <div class="col-4" id="map-absolute">
       <div id="map"
-        class="col-8"
-        style="width: 480px; height: 100vh;"
+        style="width: 480px; height: 91vh;"
         data-markers="<%= @markers.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>

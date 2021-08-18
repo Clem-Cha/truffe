@@ -1,0 +1,52 @@
+// Product Card
+.card-product-dog {
+  overflow: hidden;
+  background: white;
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  margin: 0px 50px;
+  box-shadow: none;
+  border-bottom: 1px solid grey;
+  height: 300px;
+}
+
+.card-product-dog img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+  border-radius: 20px;
+  width: 300px;
+  height: 200px;
+}
+
+.card-product-dog h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-product-dog h6 {
+  font-size: 14px;
+  font-weight: lighter;
+  margin-top: 15px;
+  font-family: "Work Sans";
+  color: #564C4D;
+}
+
+.card-product-dog a {
+  text-decoration: none;
+  color: #252525;
+}
+
+.card-product-dog p {
+  font-size: 16px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-product-dog .card-product-infos-dog {
+  padding: 16px;
+}

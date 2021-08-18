@@ -6,7 +6,7 @@
   <ul>
     <div class="flex justify-content-between">
       <div class="flex">
-        <li>⭐ <% if @aggregated_reviews.nan? == true %> <%= "no reviews yet" %>
+        <li>⭐ <% if @aggregated_reviews.nil? == true %> <%= "no reviews yet" %>
         <% else %> <%= @aggregated_reviews %> <% end %> </li>
         <li>🐕 <%= @dog.breed.capitalize %></li>
         <li>⏳ <%= @dog.age %> y.o.</li>
@@ -27,7 +27,7 @@
 
   <hr>
     <ul>
-      <% if @aggregated_reviews.nan? == true %>
+      <% if @aggregated_reviews.nil? == true %>
         <%= "" %>
       <% else %>
         <%# if @dog.reviews.nil? %>

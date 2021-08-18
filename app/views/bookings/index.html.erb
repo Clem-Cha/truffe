@@ -44,12 +44,12 @@
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <div class="modal-body">                 
+              <div class="modal-body">
                 <% if booking.reviews == [] %>
                   <small><em class="px-3">You didn't put any review for now</em></small>
                 <% else %>
                   <%= booking.reviews[0].comment %>
-                <% end %>                  
+                <% end %>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -67,7 +67,7 @@
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <div class="modal-body">                 
+              <div class="modal-body">
                 <div class="col-12 col-sm-6 my-3">
                   <div class="pb-3 px-3">
                     <%= simple_form_for [booking, review] do |f| %>
@@ -76,7 +76,7 @@
                       <%= f.submit class:'button-first' %>
                     <% end %>
                   </div>
-                </div>               
+                </div>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

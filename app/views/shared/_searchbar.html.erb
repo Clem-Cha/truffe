@@ -1,0 +1,36 @@
+<div class="search-form-control form-group">
+  <%= form_tag dogs_path, class:"simple_form search", method: :get do %>
+    <div class="seach-bar">
+
+      <div class="search-bar-item">
+        <p>Category</p>
+        <%= select_tag :category,
+          options_for_select(Dog::DOG_CATEGORY, selected: params[:category]),
+          :include_blank => true %>
+      </div>
+
+      <div class="search-bar-item">
+      <p>Breed</p>
+      <%= select_tag :breed,
+          options_for_select(Dog.all.pluck(:breed).uniq, selected: params[:breed]),
+          :include_blank => true %>
+      </div>
+
+      <div class="search-bar-item">
+      <p>Start date</p>
+        <%= date_field_tag :start_date,
+            params[:start_date] %>
+      </div>
+
+      <div class="search-bar-item">
+        <p>End date</p>
+        <%= date_field_tag :end_date,
+            params[:end_date] %>
+      </div>
+
+    <button name="button" type="submit" class="btn btn-flat">
+      <i class="fas fa-search"></i> Submit
+    </button>
+    </div>
+  <% end %>
+</div>

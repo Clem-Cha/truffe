@@ -1,33 +1,22 @@
 <h1>Find the next truffle</h1>
 
-<%= form_tag dogs_path, method: :get do %>
-    Category : <%= select_tag :category,
-                  options_for_select(Dog::DOG_CATEGORY, selected: params[:category]), :include_blank => true %>
-    Breed :    <%= select_tag :breed,
-                   options_for_select(Dog.all.pluck(:breed).uniq, selected: params[:breed]), :include_blank => true %>
-    Start date : <%= date_field_tag :start_date,
-                  params[:start_date] %>
-    End date :  <%= date_field_tag :end_date,
-                  params[:end_date] %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
+
+<%= render "shared/searchbar" %>
+
 
 <h2>Available truffle</h2>
 
-<ul>
-  <% @dogs.each do |dog| %>
-    <div>
-    <h5><%= link_to dog.name, dog_path(dog) %></h5>
-    <%= dog.breed %> •
-    <%= dog.category %> •
-    <%= dog.age %> years old<br>
-    <%= dog.description %>
-    <%= dog.start_date %>
-    <%= dog.end_date %>
+<% @dogs.each do |dog| %>
+  <div class="card-product-dog">
+    <img src="https://source.unsplash.com/random"/>
+    <div class="card-product-infos-dog">
+      <h2><%= link_to dog.name, dog_path(dog) %></h2>
+      <h6><%= dog.breed %> •
+      <%= dog.category.capitalize %> •
+      <%= dog.age %> years old<br></h6>
+      <p><%= dog.description %></p>
+      <h6>Available from <%= dog.start_date %> to
+      <%= dog.end_date %></h6>
     </div>
+  </div>
   <% end %>
-</ul>
-
-
-<%= link_to "Back to homepage", root_path %>
-<%= link_to "Add a dog", new_dog_path %>

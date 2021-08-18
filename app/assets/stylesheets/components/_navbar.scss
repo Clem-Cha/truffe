@@ -41,10 +41,6 @@
   }
 }
 
-.nav-color {
-  color: #222A68;
-}
-
 .avatar {
   width: 46px;
   border-radius: 50%;
@@ -59,4 +55,12 @@
   .nav-link {
     padding: 1rem 1rem;
   }
+}
+
+.list-limit {
+  right: -21px;
+}
+
+.shadowed-box {
+box-shadow: 0px 0px 5px rgb(168, 162, 162);
 }

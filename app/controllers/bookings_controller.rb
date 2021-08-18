@@ -1,6 +1,9 @@
 class BookingsController < ApplicationController
   def index
     @bookings = policy_scope(Booking)
+    @bookings_pending = @bookings.select { |booking| booking.status == "pending" }
+    @bookings_approved = @bookings.select { |booking| booking.status == "approved" }
+    @bookings_rejected = @bookings.select { |booking| booking.status == "rejected" }
   end
 
   def create
@@ -9,7 +12,7 @@ class BookingsController < ApplicationController
     @dog = Dog.find(params[:dog_id])
     @booking.dog = @dog
     @booking.user = current_user
-    @booking.status = "pending"
+    @booking.status = "approved"
     if @booking.save
       redirect_to bookings_path
     else

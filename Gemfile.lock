@@ -135,10 +135,13 @@ GEM
     netrc (0.11.0)
     nio4r (2.5.8)
 <<<<<<< HEAD
+<<<<<<< HEAD
     nokogiri (1.12.3-x86_64-darwin)
 =======
     nokogiri (1.12.3-x86_64-linux)
 >>>>>>> 76e4fe9d49aedd5ab08a6e91d9cec9eef3788db1
+=======
+>>>>>>> 2b7905dafadba7a6a7edb3e3d63705489ef87af8
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pg (1.2.3)
@@ -261,6 +264,7 @@ GEM
       nokogiri (~> 1.8)
     zeitwerk (2.4.2)
 
+<<<<<<< HEAD
 PLATFORMS
 <<<<<<< HEAD
   x86_64-darwin-19
@@ -268,6 +272,8 @@ PLATFORMS
   x86_64-linux
 >>>>>>> 76e4fe9d49aedd5ab08a6e91d9cec9eef3788db1
 
+=======
+>>>>>>> 2b7905dafadba7a6a7edb3e3d63705489ef87af8
 DEPENDENCIES
   autoprefixer-rails (= 10.2.5)
   bootsnap (>= 1.4.2)

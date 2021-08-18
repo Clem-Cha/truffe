@@ -1,1 +1,40 @@
 @import "../components/_card";
+
+h1 {
+  font-size: 25px;
+  font-family: Montserrat;
+  font-weight: 600;
+}
+
+body {
+  font-family: Montserrat;
+}
+
+.dog-show ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.dog-show li {
+  margin-right: 20px;
+}
+
+.front-picture {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  height: 400px;
+}
+
+.mid-picture {
+  height: 195px;
+}
+
+.side-picture-top {
+  border-top-right-radius: 10px;
+  height: 195px;
+}
+
+.side-picture-bottom {
+  border-bottom-right-radius: 10px;
+  height: 195px;
+}

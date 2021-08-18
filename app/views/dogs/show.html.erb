@@ -9,7 +9,8 @@
     <% end %>
     <div class="flex justify-content-between">
       <div class="flex">
-        <li>⭐ <%= @aggregated_reviews %></li>
+        <li>⭐ <% if @aggregated_reviews.nan? == true %> <%= "no reviews yet" %>
+        <% else %> <%= @aggregated_reviews %> <% end %> </li>
         <li>🐕 <%= @dog.breed.capitalize %></li>
         <li>⏳ <%= @dog.age %> y.o.</li>
         <li>🦴 <%= @dog.category.capitalize %></li>
@@ -35,32 +36,38 @@
   </div>
 
   <hr>
-  <h3>Reviews</h3>
-  <ul>
-    <% if @dog.reviews.nil? %>
-      <small><em class="px-3">This dog has no reviews for now</em></small>
-    <% end %>
-    <% @dog.reviews.each do |review| %>
-      <div class="card-product">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-        <div class="card-product-infos">
-          <h2><%= review.rating.nil? ? "No rating yet" : "#{review.rating}" %></h2>
-          <p><%= review.comment %></p>
-        </div>
-      </div>
-    <% end %>
-  </ul>
-  <%# if policy(@Dog).edit? %>
-    <%#= link_to "Update", dog_path(@dog)%>
-  <%# end %>
-  <div class="col-12 col-sm-6 my-3">
-    <div class="form">
-      <h5>Book this dog</h5>
-        <%= simple_form_for [@dog, @booking] do |f| %>
-        <%= f.input :start_date, as: :date, html5: true  %>
-        <%= f.input :end_date, as: :date, html5: true  %>
-        <%= f.submit class: "button-first" %>
+    <ul>
+      <% if @aggregated_reviews.nan? == true %>
+        <%= "" %>
+      <% else %>
+        <%# if @dog.reviews.nil? %>
+          <%# <small><em class="px-3">This dog has no reviews for now</em></small> %>
+        <%# end %>
+        <h3>Reviews</h3>
+        <% @dog.reviews.each do |review| %>
+          <div class="card-product">
+            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+            <div class="card-product-infos">
+              <h2><%= review.rating.nil? ? "No rating yet" : "#{review.rating}" %></h2>
+              <p><%= review.comment %></p>
+            </div>
+          </div>
+        <% end %>
       <% end %>
+    </ul>
+    <%# if policy(@Dog).edit? %>
+      <%#= link_to "Update", dog_path(@dog)%>
+    <%# end %>
+  <div class="container card-style">
+    <div class="col-12 col-sm-6 my-3">
+      <div class="form">
+        <h5>Book this dog</h5>
+          <%= simple_form_for [@dog, @booking] do |f| %>
+          <%= f.input :start_date, as: :date, html5: true, class: "form-control-sm" %>
+          <%= f.input :end_date, as: :date, html5: true, class: "form-control-sm" %>
+          <%= f.submit class: "button-first" %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

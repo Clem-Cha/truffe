@@ -1,17 +1,12 @@
 class ReviewsController < ApplicationController
 
-  def new
-    @review = Review.new
-    @booking = Booking.find(params[:booking_id])
-  end
-
   def create
     @review = Review.new(review_params)
     @booking = Booking.find(params[:booking_id])
     authorize @review
     @review.booking = @booking
     @review.save
-    redirect_to booking_path(@booking)
+    redirect_to bookings_path
   end
 
   private

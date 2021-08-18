@@ -1,6 +1,9 @@
 class BookingsController < ApplicationController
   def index
     @bookings = policy_scope(Booking)
+    @bookings_pending = @bookings.select { |booking| booking.status == "pending" }
+    @bookings_approved = @bookings.select { |booking| booking.status == "approved" }
+    @bookings_rejected = @bookings.select { |booking| booking.status == "rejected" }
   end
 
   def create

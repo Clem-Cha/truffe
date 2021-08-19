@@ -28,18 +28,19 @@ body {
 
 .big-picture {
   width: 50%;
+  height: 100%;
 }
 
 .big-picture img {
   width: 100%;
   border-radius: 10px;
   object-fit: cover;
-  height: auto;
+  height: 100%;
 }
 
 .small-picture {
   display: flex;
-  width: 32%;
+  width: 50%;
   flex-direction: column;
   justify-content: space-between;
   margin-left: 20px;

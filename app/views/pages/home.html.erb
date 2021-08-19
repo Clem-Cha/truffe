@@ -28,7 +28,7 @@
       <% end %>
     </div>
      <div class="cards">
-      <%= link_to dogs_path(category: "flirting") do %>
+      <%= link_to dogs_path(category: "flirt") do %>
         <div class="categories">
           <h5>Flirting</h5>
           <%= image_tag "cards/flirting.png" %>
@@ -82,4 +82,15 @@
 
 <div>
   <h2 class="my-4 margin">Meet our top dogs</h2>
+  <div class="top-cards">
+    <% @top3_dogs.each_with_index do |dog| %>
+      <%= dog %>
+    <% end %>
+  </div>
+</div>
+
+<div>
+  <div class="card-owner margin" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path "cards/dogowner.jpeg" %>')">
+    Become a Truffe dog owner
+  </div>
 </div>

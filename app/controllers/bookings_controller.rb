@@ -12,7 +12,7 @@ class BookingsController < ApplicationController
     @dog = Dog.find(params[:dog_id])
     @booking.dog = @dog
     @booking.user = current_user
-    @booking.status = "approved"
+    @booking.status = "pending"
     if @booking.save
       redirect_to bookings_path
     else
@@ -22,13 +22,22 @@ class BookingsController < ApplicationController
 
   def edit
     @booking = Booking.find(params[:id])
+    @dog = @booking.dog
+    authorize @booking
   end
 
   def update
     @booking = Booking.find(params[:id])
     authorize @booking
     @booking.update(booking_params)
-    redirect_to booking_path(@booking)
+    redirect_to bookings_path
+  end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    @booking.destroy
+    redirect_to bookings_path
   end
 
   private

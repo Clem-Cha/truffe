@@ -5,6 +5,23 @@
   z-index: 10;
 }
 
+.search-bar {
+  animation: fade-in 1s;
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.d-none {
+  animation: fade-out 1s;
+}
+
 
 .search-form-control-index {
   // margin: 30px 100px;

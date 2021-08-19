@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-12 col-sm-6 my-3">
+
       <div class="booking-cards">
         <h1>My dogs </h1>
           <% if @dogs.empty? %>
@@ -33,60 +34,41 @@
       </div>
 
 
-
-<h1>My pending booking requests</h1>
-
-<% if @bookings_pending.empty? %>
-<p>You don't have any booking requests yet !</p>
-<% else %>
- <% @bookings_pending.each do |booking| %>
-          <% dog = Dog.find(booking.dog_id) %>
-          <% user = User.find(booking.user_id) %>
-          <div class="booking-card">
-            <% if dog.photos.attached? %>
-              <%= cl_image_tag dog.photos[0].key, class:"booking-card-image" %>
-            <% else %>
-              <%= image_tag 'home.jpg', class:"booking-card-image" %>
+      <div class="pending-requests">
+        <h1>My pending booking requests</h1>
+          <% if @bookings_pending.empty? %>
+            <p>You don't have any booking requests yet !</p>
+          <% else %>
+            <% @bookings_pending.each do |booking| %>
+              <% dog = Dog.find(booking.dog_id) %>
+              <% user = User.find(booking.user_id) %>
+              <div class="booking-card">
+                <% if dog.photos.attached? %>
+                  <%= cl_image_tag dog.photos[0].key, class:"booking-card-image" %>
+                <% else %>
+                  <%= image_tag 'home.jpg', class:"booking-card-image" %>
+                <% end %>
+                <div class="booking-card-content">
+                  <div class="booking-card-title">
+                    <h4><%= link_to dog.name, dog_path(dog) %></h4>
+                  </div>
+                  <div class="booking-card-text">
+                    <%= link_to "#{user.first_name}'s profil", profil_path(user) %>
+                  </div>
+                  <div class="booking-card-dates">
+                    <p>from <strong><%= booking.start_date %></strong></p>
+                    <p>to <strong><%= booking.end_date %></strong></p>
+                  </div>
+                    <%= link_to "Accept", update_status_booking_path(booking, status: "approved"), method: :patch %>
+                    <%= link_to "Reject", update_status_booking_path(booking, status: "rejected"), method: :patch %>
+                </div>
+              </div>
             <% end %>
+          <% end %>
+      </div>
 
-            <div class="booking-card-content">
-              <div>
-                <div class="booking-card-title">
-                  <h4><%= link_to dog.name, dog_path(dog) %></h4>
-                </div>
-                <div class="booking-card-text">
-                  <%= link_to "#{user.first_name}'s profil", profil_path(user) %>
-                </div>
-              </div>
-              <div class="booking-card-dates">
-                <div>
-                  <p>from <strong><%= booking.start_date %></strong></p>
-                  <p>to <strong><%= booking.end_date %></strong></p>
-                </div>
-              </div>
-
-              <%= link_to "Accept", update_status_booking_path(booking, status: "approved"), method: :patch %>
-              <%= link_to "Reject", update_status_booking_path(booking, status: "rejected"), method: :patch %>
-
-            </div>
-
-
-          </div>
-<% end %>
-<% end %>
-
-
-
-
-
-
-<%# CODE DE BASE  %>
-
-
-
-
+      <div class="booking-history">
         <h1>My booking history</h1>
-
         <% @bookings_history.each do |booking| %>
           <% dog = Dog.find(booking.dog_id) %>
           <% user = User.find(booking.user_id) %>
@@ -97,30 +79,24 @@
               <%= image_tag 'home.jpg', class:"booking-card-image" %>
             <% end %>
             <div class="booking-card-content">
-              <div>
               <div class="booking-card-title">
                 <h4><%= link_to dog.name, dog_path(dog) %></h4>
               </div>
               <div class="booking-card-text">
                 <%= link_to "#{user.first_name}'s profil", profil_path(user) %>
               </div>
-              </div>
               <div class="booking-card-dates">
-                <div>
-                  <p>from <strong><%= booking.start_date %></strong></p>
-                  <p>to <strong><%= booking.end_date %></strong></p>
-                </div>
+                <p>from <strong><%= booking.start_date %></strong></p>
+                <p>to <strong><%= booking.end_date %></strong></p>
               </div>
             </div>
             <div class="booking-card-content">
-             <%= booking.status.capitalize %>
-             </div>
+              <%= booking.status.capitalize %>
+            </div>
           </div>
         <% end %>
-
-
-
       </div>
+
     </div>
   </div>
 </div>

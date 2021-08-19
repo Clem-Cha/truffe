@@ -8,8 +8,8 @@ class PagesController < ApplicationController
     @dogs = policy_scope(Dog).where(user_id: current_user).order(created_at: :desc)
 
     @dog_ids = @dogs.map { |dog| dog.id  }
-    @bookings_pending = Booking.where(dog_id: @dog_ids, status: "pending")
-    @bookings_history = Booking.where(dog_id: @dog_ids, status: ["approved", "rejected"])
+    @bookings_pending = Booking.where(dog_id: @dog_ids, status: "pending").order(updated_at: :desc)
+    @bookings_history = Booking.where(dog_id: @dog_ids, status: ["approved", "rejected"]).order(updated_at: :desc)
   end
 
   def profil

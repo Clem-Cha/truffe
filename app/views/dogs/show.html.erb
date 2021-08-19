@@ -66,7 +66,7 @@
     </div>
   </div>
   <div id="map"
-    style="width: 100wv; height: 480px; margin: 50px 0; border-radius: 10px;"
+    style="flex-grow: 1; height: 480px; margin: 50px 0; border-radius: 10px;"
     data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>

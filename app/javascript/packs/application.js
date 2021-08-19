@@ -27,6 +27,8 @@ import "bootstrap";
 // Internal imports
 import { initMapbox } from '../plugins/init_mapbox';
 import { initUpdateNavbarOnScroll } from '../components/navbar';
+import { initUpdateSearchbarOnScroll } from '../components/searchbar-index';
+import { initUpdateSearchbarShowOnScroll } from '../components/searchbar-show';
 import { initReviewOnHover } from '../components/review';
 import { loadDynamicBannerText } from "../components/banner";
 import { initAutocomplete } from '../plugins/init_autocomplete';

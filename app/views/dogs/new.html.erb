@@ -6,6 +6,7 @@
   <%= f.input :breed %>
   <%= f.select :category, :collection => Dog::DOG_CATEGORY %>
   <%= f.input :description %>
+  <%= f.input :address %>
   <%= f.input :start_date, as: :date %>
   <%= f.input :end_date, as: :date %>
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>

@@ -6,7 +6,7 @@
       <%= image_tag "dog-logo.png", class: "logo" %>
     <% end %>
   </div>
-
+  <%= render "shared/searchbar-small" %>
   <div class="collapse navbar-collapse">
     <ul class="navbar-nav">
       <% if user_signed_in? %>

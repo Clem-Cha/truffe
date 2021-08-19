@@ -10,7 +10,7 @@ const initUpdateNavbarOnScroll = () => {
         navbar.classList.remove('navbar-truffe-transparent');
         button.style.color = "lightgray";
       }
-    }); 
+    });
   }
 }
 

@@ -39,5 +39,7 @@ document.addEventListener('turbolinks:load', () => {
   initUpdateNavbarOnScroll();
   loadDynamicBannerText();
   initReviewOnHover();
+  initUpdateSearchbarOnScroll();
+  initUpdateSearchbarShowOnScroll();
   initAutocomplete();
 });

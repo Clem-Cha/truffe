@@ -1,5 +1,6 @@
-<div id="top-page" class="container dog-show">
-  <%= render "shared/searchbar" %>
+<%= render "shared/searchbar-index" %>
+<div id="top-page" class="container dog-show  show-js">
+  <div class="white" style="height: 125px"></div>
   <h1>🐶 Welcome to <%= @dog.name.capitalize %>'s world 🐶</h1>
 
   <ul>
@@ -70,5 +71,5 @@
     <%# if policy(@Dog).edit? %>
       <%#= link_to "Update", dog_path(@dog)%>
     <%# end %>
-  
+
 </div>

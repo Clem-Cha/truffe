@@ -17,18 +17,17 @@
       <li><em>"<%= @dog.description.capitalize %>"</em></li>
     </div>
   </ul>
-  <hr>
 
   <div class="big-picture">
     <%= cl_image_tag @dog.photos[0].key %>
-      <div class="small-picture">
-          <%= cl_image_tag @dog.photos[1].key %>
-          <%= cl_image_tag @dog.photos[2].key %>
-      </div>
+    <div class="small-picture">
+        <%= cl_image_tag @dog.photos[1].key %>
+        <%= cl_image_tag @dog.photos[2].key %>
+    </div>
   </div>
 
-  <hr>
-    <ul>
+  <div class="row">
+    <div class="col-12 col-lg-6 my-3">
       <% if @aggregated_reviews.nil? == true %>
         <%= "" %>
       <% else %>
@@ -48,26 +47,26 @@
           </div>
         <% end %>
       <% end %>
-    </ul>
+    </div>
+
+    <div class="col-12 col-lg-6 my-3">
+      <div class="form form-fixed">
+        <h5 class="my-3">🐶 Book <strong><%= @dog.name.capitalize %></strong> 🐶</h5>
+        <%= simple_form_for [@dog, @booking] do |f| %>
+          <%= f.input :start_date, as: :date, html5: true, class: "form-control" %>
+          <%= f.input :end_date, as: :date, html5: true, class: "form-control" %>
+          <%= f.submit class: "button-first" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div id="map"
+    style="width: 100wv; height: 480px; margin: 50px 0; border-radius: 10px;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
     <%# if policy(@Dog).edit? %>
       <%#= link_to "Update", dog_path(@dog)%>
     <%# end %>
-  <hr>
-  <h5>🐶 Book <strong><%= @dog.name.capitalize %></strong> 🐶</h5>
-    <div class="container card-style" style="margin-bottom:12px">
-      <div >
-        <div class="form">
-          <%= simple_form_for [@dog, @booking] do |f| %>
-            <%= f.input :start_date, as: :date, html5: true, class: "form-control" %>
-            <%= f.input :end_date, as: :date, html5: true, class: "form-control" %>
-            <%= f.submit class: "button-first" %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-    <div id="map"
-      style="width: 100wv; height: 480px; margin: 50px 0; border-radius: 10px;"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-    </div>
+  
 </div>

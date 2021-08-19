@@ -1,5 +1,5 @@
 <%= render "shared/searchbar-index" %>
-<div id="top-page" class="container dog-show  show-js">
+<div id="top-page" class="container dog-show show-js">
   <div class="white" style="height: 125px"></div>
   <h1>🐶 Welcome to <%= @dog.name.capitalize %>'s world 🐶</h1>
 
@@ -18,11 +18,13 @@
     </div>
   </ul>
 
-  <div class="big-picture">
-    <%= cl_image_tag @dog.photos[0].key %>
+  <div class="card-image">
+    <div class="big-picture">
+      <%= cl_image_tag @dog.photos[0].key %>
+    </div>
     <div class="small-picture">
-        <%= cl_image_tag @dog.photos[1].key %>
-        <%= cl_image_tag @dog.photos[2].key %>
+      <%= cl_image_tag @dog.photos[1].key %>
+      <%= cl_image_tag @dog.photos[2].key %>
     </div>
   </div>
 

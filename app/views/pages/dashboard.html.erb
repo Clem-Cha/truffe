@@ -2,29 +2,35 @@
   <div class="row">
     <div class="col-12 col-sm-6 my-3">
       <div class="booking-cards">
-
-
-<h1>My dogs </h1>
+        <h1>My dogs </h1>
           <% if @dogs.empty? %>
-             <p>You don't have any dog for the moment</p>
+            <p>You don't have any dog for the moment</p>
             <%= link_to "Add a new truffle", new_dog_path, class:"button-first" %>
-            <% else %>
-            <% @dogs.each do |dog| %>
+          <% else %>
+            <div class="dogs-container">
+              <% @dogs.each do |dog| %>
                 <div class="card" style="width: 18rem;">
-                  <%= cl_image_tag dog.photos[0].key,class:"card-img-top" %>
-                  <div class="card-body">
-                    <h5 class="card-title"><%= link_to dog.name, dog_path(dog) %></h5>
-                    <p class="card-text">🐕 <%= dog.breed %> <br>
-                                        🦴 <%= dog.category.capitalize %> <br>
-                                        ⏳ <%= dog.age %> years old<br>
-                                          <%= dog.description %></p>
-                    <%= link_to "Update", edit_dog_path(dog), class:"button-second" %>
-                    <%= link_to "Delete", dog_path(dog), method: :delete, data: {confirm: "Are you sure?"}, class:"button-second" %>
-                  </div>
+                  <% if dog.photos.empty? %>
+                    <img src="home.jpg" alt="">
+                  <% else %>
+                    <%= cl_image_tag dog.photos[0].key,class:"card-img-top" %>
+                  <% end %>
+                    <div class="card-body">
+                      <h5 class="card-title"><%= link_to dog.name, dog_path(dog) %></h5>
+                      <p class="card-text">🐕 <%= dog.breed %> <br>
+                                          🦴 <%= dog.category.capitalize %> <br>
+                                          ⏳ <%= dog.age %> years old<br>
+                                            <%= dog.description %></p>
+                      <%= link_to "Update", edit_dog_path(dog), class:"button-second" %>
+                      <%= link_to "Delete", dog_path(dog), method: :delete, data: {confirm: "Are you sure?"}, class:"button-second" %>
+                    </div>
                 </div>
-                <% end %>
-                <%= link_to "Add a new truffle", new_dog_path, class:"button-first"  %>
+              <% end %>
+            </div>
+
+            <%= link_to "Add a new truffle", new_dog_path, class:"button-first"  %>
           <% end %>
+      </div>
 
 
 
@@ -58,8 +64,9 @@
                   <p>to <strong><%= booking.end_date %></strong></p>
                 </div>
               </div>
-            <button type="button" class="btn btn-success">Accept</button>
-            <button type="button" class="btn btn-outline-danger">Reject</button>
+
+              <%= link_to "Accept", update_status_booking_path(booking, status: "approved"), method: :patch %>
+              <%= link_to "Reject", update_status_booking_path(booking, status: "rejected"), method: :patch %>
 
             </div>
 

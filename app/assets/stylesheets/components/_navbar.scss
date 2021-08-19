@@ -4,7 +4,8 @@
 
 .navbar-truffe {
   justify-content: space-between;
-  background: white;
+  background-color: white;
+  transition: 0.5s background-color ease;
   height: 70px;
   padding: 0px 20px;
   border-bottom: 1px solid rgb(211, 211, 211);
@@ -13,12 +14,18 @@
   width: 100%;
 }
 
+.navbar-truffe-transparent {
+  background-color: transparent;
+  border-bottom: none;
+}
+
 .navbar-collapse {
   flex-grow: 0;
 }
 
 .profile {
   cursor: pointer;
+  background-color: white;
   display: flex;
   box-shadow: 0 0 10px rgba(0,0,0,0.05);
   padding: 5px 10px;
@@ -35,6 +42,7 @@
     color: black;
   }
 }
+
 .dropdown-toggle::after {
   display: none;
 }
@@ -62,4 +70,8 @@
       }
     }
   }
+}
+
+.color {
+  color: white;
 }

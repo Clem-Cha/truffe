@@ -29,10 +29,15 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 import { initReviewOnHover } from '../components/review';
 import { loadDynamicBannerText } from "../components/banner";
+import { initAutocomplete } from '../plugins/init_autocomplete';
+
+// Internal imports, e.g:
+// import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initUpdateNavbarOnScroll();
   loadDynamicBannerText();
-  initReviewOnHover ();
+  initReviewOnHover();
+  initAutocomplete();
 });

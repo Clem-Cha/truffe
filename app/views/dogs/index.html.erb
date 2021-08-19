@@ -1,8 +1,10 @@
-<%= render "shared/searchbar" %>
-<div class="dog-page">
-  <div class="row">
 
+<%= render "shared/searchbar-index" %>
+  <div class="dog-page">
+    <div class="row">
     <div class="col-8">
+
+
       <h2 id="index-header" style="margin-left: 50px; margin-top: 125px;">All available truffles</h2>
       <p style="margin-left: 50px">These are all the available truffles in your neighbourhood.</p>
 
@@ -35,9 +37,9 @@
           <% end %>
             <div class="card-product-infos-dog">
               <h2><%= link_to dog.name, dog_path(dog) %></h2>
-              <h6><%= dog.breed %> •
-              <%= dog.category.capitalize %> •
-              <%= dog.age %> years old<br></h6>
+              <h6>🐕 <%= dog.breed %>
+              🦴 <%= dog.category.capitalize %>
+              ⏳ <%= dog.age %> years old<br></h6>
               <p><%= dog.description %></p>
               <h6>Available from <%= dog.start_date %> to
               <%= dog.end_date %></h6>

@@ -35,16 +35,19 @@
           <%# <small><em class="px-3">This dog has no reviews for now</em></small> %>
         <%# end %>
         <h5>Reviews</h5>
-        <% @dog.reviews.each do |review| %>
-          <div class="card-product">
-            <div class="card-product-infos">
-
-              <h2><%= review.booking.user.first_name %></h2>
-              <h2><%= review.rating.nil? ? "No rating yet" : "#{review.rating} / 10" %></h2>
-
-              <p><%= review.comment %></p>
+        <hr>
+        <% if @dog.reviews == [] %>
+          <small><em><p>No reviews (for now)</p></em></small>
+        <% else %>
+          <% @dog.reviews.each do |review| %>
+            <div class="card-product">
+              <div class="card-product-infos">
+                <h2><%= review.booking.user.first_name %></h2>
+                <h2><%= review.rating / 10 %></h2>
+                <p><%= review.comment %></p>
+              </div>
             </div>
-          </div>
+          <% end %>
         <% end %>
       <% end %>
     </div>

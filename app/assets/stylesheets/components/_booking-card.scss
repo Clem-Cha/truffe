@@ -2,8 +2,8 @@
   display: flex;
   background-color: white;
   border-radius: 10px;
-  width: 500px;
   height: 100px;
+  width: auto;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
   margin-bottom: 30px;
   h4 {
@@ -27,15 +27,50 @@
   object-position: center;
 }
 
-.booking-card-content {
-  padding: 10px;
-  display: flex;
-  justify-content: space-between;
-  flex-grow: 1;
-}
-
 .booking-cards {
   padding: 10px;
   display: flex;
   flex-direction: column;
+}
+
+.booking-card-content {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.booking-card-pending {
+  .booking-card-content {
+    flex-grow: 1;
+  }
+}
+
+.booking-card-title {
+  h4 {
+    padding-bottom: 10px;
+  }
+}
+
+.booking-card-date {
+  width: 120px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+
+  .dates {
+    width: 70px;
+  }
+}
+
+.review {
+  flex-grow: 1;
+  padding: 10px;
+  font-size: 10px;
+  background-color: white;
+  color: white;
+  transition: all 0.3s;
+}
+.review-visible {
+  color: black;
+  background-color: rgb(240, 240, 240);
 }

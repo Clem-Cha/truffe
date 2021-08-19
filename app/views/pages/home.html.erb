@@ -100,14 +100,14 @@
   </div>
 </div>
 
-<div>
-  <%= link_to dogs_path(category: "holiday") do %>
+<div class="my-4" >
+  <%= link_to new_dog_path(category: "holiday") do %>
     <div class="card-owner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path "cards/dogowner.jpeg" %>')">
       <div class="">
         Become a Truffe dog owner
       </div>
       <div class="owner-paragraph">
-        Enable your do to become part of Truffe's family! Truffe is the easiest and safest community to find the right person to take care of your doggie once you're away for a couple of days
+        Enable your do to become part of Truffe's family! <br> Truffe is the easiest and safest community to find the right person to take care of your doggie once you're away for a couple of days
       </div>
     </div>
   <% end %>

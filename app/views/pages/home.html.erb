@@ -80,9 +80,10 @@
   </div>
 </div>
 
-<div>
+<hr>
+<div class="margin-top">
   <h2 class="my-4 margin">Meet our top dogs 🏆</h2>
-  <div class="container grid">
+  <div class="container grid margin-top">
     <% @dogs.each do |dog| %>
       <%= link_to dog_path(dog) do %>
         <div class="card">
@@ -102,7 +103,7 @@
   </div>
 </div>
 
-<div class="my-4 border-top" >
+<div class="margin-top border-top" >
   <%= link_to new_dog_path(category: "holiday") do %>
     <div class="card-owner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path "cards/dogowner.jpeg" %>')">
       <div class="">

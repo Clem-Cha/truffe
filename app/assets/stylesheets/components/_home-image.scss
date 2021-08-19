@@ -144,6 +144,14 @@ h5 {
   border-style: none;
 }
 
-.border-top {
-  border-top: 50px;
+.margin-top {
+  margin-top: 40px;
+}
+
+.hr {
+  border:none;
+  border-top:1px dotted grey;
+  color:#fff;
+  background-color:#fff;
+  height:1px;
 }

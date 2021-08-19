@@ -1,5 +1,4 @@
 .search-form-control {
-
   // margin: 30px 100px;
   margin-left: -60px;
 
@@ -15,7 +14,7 @@
   height: 3.5rem;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
   border: 1px solid #E7E7E7;
-  border-radius: 10px;
+  border-radius: 50%;
 }
 
 .search-form-control .form-control:focus {
@@ -25,11 +24,11 @@
 }
 
 
-
 .btn-flat {
   color: white;
-  padding: 8px 24px;
-  border-radius: 15px;
+  padding: 5px 10px;
+
+  border-radius: 50%;
   background: #9AC4F8;
   transition: background 0.3s ease;
 }
@@ -40,12 +39,12 @@
 }
 
 .seach-bar {
-  width: 80%;
+  width: 91%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   margin: 50px auto;
   border: 1px solid rgb(226, 225, 225);
-  border-radius: 15px;
+  border-radius: 60px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
   padding: 10px;
   background-color: white;
@@ -55,18 +54,84 @@
 }
 
 .search-bar-item {
+  border-style: none;
   border-right:1px solid rgb(226, 225, 225);
-  padding-right: 35px;
+  padding-right: 45px;
 
   select {
     word-wrap: break-word;
-    border: 1px solid #e6e6e6;
+    border-style: none;
+    border-bottom: 1px solid #e6e6e6;
     font-size: 14px;
   }
 
   input {
     word-wrap: break-word;
-    border: 1px solid #e6e6e6;
+    border-style: none;
+    border-bottom: 1px solid #e6e6e6;
     font-size: 14px;
+  }
+
+  p {
+    font-size: 14px;
+    font-weight: bolder;
+  }
+}
+
+.item-1 {
+  margin-left: 40px;
+}
+
+.item-4 {
+  border-right: none;
+}
+
+@media screen and (max-width: 1250px) {
+  .item-4,
+  .item-3 {
+    display: none;
+  }
+  .item-2 {
+    border-style: none;
+  }
+  .search-bar-item {
+    padding-right: 75px;
+  }
+  #category {
+    width: 250px;
+  }
+  #breed {
+    width: 250px;
+  }
+}
+
+@media screen and (max-width: 1060px) {
+  .item-2 {
+    display: none;
+  }
+  .item-1 {
+    border-style: none;
+    flex-grow: 1;
+  }
+  #category {
+    width: 450px;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  #category {
+    width: 350px;
+  }
+}
+
+@media screen and (max-width: 770px) {
+  #category {
+    width: 250px;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  #category {
+    width: 180px;
   }
 }

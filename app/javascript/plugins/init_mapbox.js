@@ -30,12 +30,12 @@ const initMapbox = () => {
     fitMapToMarkers(map, markers);
   }
 
-  if (mapElement) {
-    map.addControl(new MapboxGeocoder({
-      accessToken: mapboxgl.accessToken,
-      mapboxgl: mapboxgl
-    }));
-  }
+  // if (mapElement) {
+  //   map.addControl(new MapboxGeocoder({
+  //     accessToken: mapboxgl.accessToken,
+  //     mapboxgl: mapboxgl
+  //   }));
+  // }
 };
 
 export { initMapbox };

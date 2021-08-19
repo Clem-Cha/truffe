@@ -9,10 +9,77 @@
 </div>
 
 <div>
-  <h2 class="my-4">Dogs categories: </h2>
-    <a href="/dogs?category=walk&breed=&start_date=&end_date=&button=">
-      <div class="categories">
-        <img src="/assets/images/cards/sport.png">
-      </div>
-    </a>
+  <h2 class="my-4 margin">Dogs categories</h2>
+  <div class="card-boxes margin">
+    <div class="cards">
+      <%= link_to dogs_path(category: "walk") do %>
+        <div class="categories">
+          <h5>Walk</h5>
+          <%= image_tag "cards/walk.png" %>
+        </div>
+      <% end %>
+    </div>
+    <div class="cards">
+      <%= link_to dogs_path(category: "sport") do %>
+        <div class="categories">
+          <h5>Sport</h5>
+          <%= image_tag "cards/sport.png" %>
+        </div>
+      <% end %>
+    </div>
+     <div class="cards">
+      <%= link_to dogs_path(category: "flirting") do %>
+        <div class="categories">
+          <h5>Flirting</h5>
+          <%= image_tag "cards/flirting.png" %>
+        </div>
+      <% end %>
+    </div>
+     <div class="cards">
+      <%= link_to dogs_path(category: "companion") do %>
+        <div class="categories">
+          <h5>Companion</h5>
+          <%= image_tag "cards/companion.png" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="card-boxes margin">
+     <div class="cards">
+      <%= link_to dogs_path(category: "hunt") do %>
+        <div class="categories">
+          <h5>Hunting</h5>
+          <%= image_tag "cards/hunt.png" %>
+        </div>
+      <% end %>
+    </div>
+    <div class="cards">
+      <%= link_to dogs_path(category: "holiday") do %>
+        <div class="categories">
+          <h5>Holiday</h5>
+          <%= image_tag "cards/holiday.png" %>
+        </div>
+      <% end %>
+    </div>
+    <div class="cards">
+      <%= link_to dogs_path(category: "education") do %>
+        <div class="categories">
+          <h5>Education</h5>
+          <%= image_tag "cards/education.png" %>
+        </div>
+      <% end %>
+    </div>
+    <div class="cards">
+      <%= link_to dogs_path(category: "breeding") do %>
+        <div class="categories">
+          <h5>Breeding</h5>
+          <%= image_tag "cards/breeding.png" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div>
+  <h2 class="my-4 margin">Meet our top dogs</h2>
 </div>

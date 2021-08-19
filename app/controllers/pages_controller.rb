@@ -10,7 +10,10 @@ class PagesController < ApplicationController
 
 
     @bookings = policy_scope(Booking)
-    @bookings_pending = @bookings.select { |booking| booking.status == "pending" }
-    @bookings_history = @bookings.select { |booking| booking.status == "approved" || booking.status == "rejected" }
+    @bookings_pending = Booking.where(user_id: current_user, status: "pending")
+    # @bookings_pending = @bookings.select { |booking| booking.status == "pending" }
+    @bookings_approved= Booking.where(user_id: current_user, status: "approved")
+    @bookings_rejected= Booking.where(user_id: current_user, status: "rejected")
+    # @bookings_history = @bookings.select { |booking| booking.status == "approved" || booking.status == "rejected" }
   end
 end

@@ -35,6 +35,11 @@ class DogsController < ApplicationController
     @booking = Booking.new
     @reviews = @dog.reviews
     @aggregated_reviews = @reviews.sum(:rating) / @reviews.size
+    @markers = [{
+      lat: @dog.latitude,
+      lng: @dog.longitude,
+      info_window: render_to_string(partial: "info_window", locals: { dog: @dog }),
+    }]
   end
 
   def new

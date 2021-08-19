@@ -80,6 +80,10 @@ puts "Creating 50 booking seeds"
     user: User.order('RANDOM()').first
   )
 end
+approved_bookings = Booking.where(status: "approved")
+approved_bookings.each do |booking|
+  Review.create!(booking: booking, comment: "You get the point", rating: (1..10).to_a.sample)
+end
 puts "Finish creating booking seeds"
 
 # puts "Creating 10 review seeds"

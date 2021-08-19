@@ -19,21 +19,28 @@ body {
   margin-right: 20px;
 }
 
-.big-picture {
+.card-image {
   display: flex;
   width: 1200px;
   height: 500px;
   margin: 10px;
-  object-fit: cover;
+}
+
+.big-picture {
+  width: 50%;
+  height: 100%;
 }
 
 .big-picture img {
+  width: 100%;
   border-radius: 10px;
+  object-fit: cover;
+  height: 100%;
 }
 
 .small-picture {
-  width: 50%;
   display: flex;
+  width: 50%;
   flex-direction: column;
   justify-content: space-between;
   margin-left: 20px;

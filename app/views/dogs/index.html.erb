@@ -11,7 +11,7 @@
       <% @dogs.each do |dog| %>
         <div class="card-product-dog">
           <% if dog.photos.attached? %>
-            <div id="name-<%= dog.id %>" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div id="name-<%= dog.id %>" class="carousel slide carousel-fade" data-interval="false">
               <div class="carousel-inner">
                 <div class="carousel-item active">
                   <%= cl_image_tag dog.photos[0].key, crop: :fill %>

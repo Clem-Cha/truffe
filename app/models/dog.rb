@@ -16,6 +16,7 @@ class Dog < ApplicationRecord
   validates :category, inclusion: { in: DOG_CATEGORY, message: "Sorry, this category does not exist yet." }
   validates :start_date, presence: true
   validates :end_date, presence: true
+  validates :address, presence: true
 
   scope :after, -> (date) { where('start_date <= ?', Date.parse(date)) }
   scope :before, -> (date) { where('end_date >= ?', Date.parse(date)) }

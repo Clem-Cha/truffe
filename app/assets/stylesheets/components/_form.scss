@@ -10,3 +10,8 @@
     padding-left: 10px; 
   }
 }
+
+.form-fixed {
+  position: fixed !important;
+  z-index: 1 !important;
+}

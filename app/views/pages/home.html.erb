@@ -1,7 +1,117 @@
 <div class="cover cover-index">
   <div class="container">
     <h1>TRUFFE</h1>
-    <p style="margin-bottom: 100px;" class="subtitle">Find your doggie</p>
+    <p class="subtitle">
+      <span id="banner-typed-text"></span>
+    </p>
     <%= render "shared/searchbar" %>
   </div>
+</div>
+
+<div>
+  <h2 class="my-4 margin">Dogs' categories</h2>
+  <div class="card-boxes margin">
+    <div class="cards">
+      <%= link_to dogs_path(category: "walk") do %>
+        <div class="categories">
+          <h5>Walk</h5>
+          <%= image_tag "cards/walk.png" %>
+        </div>
+      <% end %>
+    </div>
+    <div class="cards">
+      <%= link_to dogs_path(category: "sport") do %>
+        <div class="categories">
+          <h5>Sport</h5>
+          <%= image_tag "cards/sport.png" %>
+        </div>
+      <% end %>
+    </div>
+     <div class="cards">
+      <%= link_to dogs_path(category: "flirt") do %>
+        <div class="categories">
+          <h5>Flirting</h5>
+          <%= image_tag "cards/flirting.png" %>
+        </div>
+      <% end %>
+    </div>
+     <div class="cards">
+      <%= link_to dogs_path(category: "companion") do %>
+        <div class="categories">
+          <h5>Companion</h5>
+          <%= image_tag "cards/companion.png" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="card-boxes margin">
+     <div class="cards">
+      <%= link_to dogs_path(category: "hunt") do %>
+        <div class="categories">
+          <h5>Hunting</h5>
+          <%= image_tag "cards/hunt.png" %>
+        </div>
+      <% end %>
+    </div>
+    <div class="cards">
+      <%= link_to dogs_path(category: "holiday") do %>
+        <div class="categories">
+          <h5>Holiday</h5>
+          <%= image_tag "cards/holiday.png" %>
+        </div>
+      <% end %>
+    </div>
+    <div class="cards">
+      <%= link_to dogs_path(category: "education") do %>
+        <div class="categories">
+          <h5>Education</h5>
+          <%= image_tag "cards/education.png" %>
+        </div>
+      <% end %>
+    </div>
+    <div class="cards">
+      <%= link_to dogs_path(category: "breeding") do %>
+        <div class="categories">
+          <h5>Breeding</h5>
+          <%= image_tag "cards/breeding.png" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<hr>
+<div class="margin-top">
+  <h2 class="my-4 margin">Meet our top dogs 🏆</h2>
+  <div class="container grid margin-top">
+    <% @dogs.each do |dog| %>
+      <%= link_to dog_path(dog) do %>
+        <div class="card">
+          <div class="dog-name">
+            <%= dog.name %>
+          </div>
+          <div class="dog-review">
+            <% aggregated_reviews = dog.reviews.sum(:rating) / dog.reviews.size %>
+            ⭐ <%= aggregated_reviews %> / 10
+          </div>
+          <div class="top-dog-picture">
+            <%= cl_image_tag dog.photos[0].key, crop: :fill %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<div class="margin-top border-top" >
+  <%= link_to new_dog_path(category: "holiday") do %>
+    <div class="card-owner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path "cards/dogowner.jpeg" %>')">
+      <div class="">
+        Become a Truffe dog owner
+      </div>
+      <div class="owner-paragraph">
+        Enable your do to become part of Truffe's family! <br> Truffe is the easiest and safest community to find the right person to take care of <br>your doggie once you're away for a couple of days
+      </div>
+    </div>
+  <% end %>
 </div>

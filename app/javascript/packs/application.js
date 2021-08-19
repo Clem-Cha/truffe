@@ -37,3 +37,10 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initUpdateNavbarOnScroll();
 });
+
+// Adding dynamic tagline on homepage
+import { loadDynamicBannerText } from '../components/banner';
+
+document.addEventListener('turbolinks:load', () => {
+  loadDynamicBannerText();
+});

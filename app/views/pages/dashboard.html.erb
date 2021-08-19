@@ -1,7 +1,7 @@
 <div class="row">
-  <div class="col-12 my-3">
-    <div class="container">
-      <%= link_to "Add a new truffle", new_dog_path, class:"button-first"  %>
+  <div class="col-12">
+    <div style="margin-left: 100px; margin-top: 30px;">
+      <%= link_to "Add a new truffle", new_dog_path, class:"button-first" %>
       <% if @dogs.empty? %>
         <hr>
         <em><small><p>You don't have any dog for the moment</p></small></em>
@@ -53,8 +53,6 @@
         </div>
       </div>
     <% end %>
-
-
   </div>
 </div>
 <div class="container">

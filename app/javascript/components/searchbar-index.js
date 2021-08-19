@@ -6,7 +6,7 @@ const initUpdateSearchbarOnScroll = () => {
   if (navbar) {
     if (searchbarIndex)  {
       window.addEventListener('scroll', () => {
-        if (window.scrollY >= 10 && document.location.pathname === "/dogs/") {
+        if (window.scrollY >= 10 && document.location.pathname === "/dogs") {
           searchbarIndex.classList.add('d-none');
           searchbarSmall.classList.remove('d-none');
         } else {

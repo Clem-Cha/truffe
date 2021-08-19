@@ -28,6 +28,7 @@ import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 import { initReviewOnHover } from '../components/review';
+import { initUpdateSearchbarOnScroll } from "../components/searchbar";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -37,5 +38,6 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   initMapbox();
   initUpdateNavbarOnScroll();
-  initReviewOnHover ();
+  initReviewOnHover();
+  initUpdateSearchbarOnScroll();
 });

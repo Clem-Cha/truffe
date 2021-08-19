@@ -7,11 +7,8 @@ class PagesController < ApplicationController
                     .group("dogs.id")
                     .order("average_rating DESC")
                     .limit(3)
-
-    @dogs = Dog.where(id: @top3_dogs)
-
-    raise
-
+    @top3_dogs_ids = @top3_dogs.map { |x| x.id }
+    @dogs = Dog.where(id: @top3_dogs_ids)
   end
 
   def dashboard

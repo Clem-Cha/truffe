@@ -81,16 +81,34 @@
 </div>
 
 <div>
-  <h2 class="my-4 margin">Meet our top dogs</h2>
-  <div class="top-cards">
-    <% @top3_dogs.each_with_index do |dog| %>
-      <%= dog %>
-    <% end %>
+  <h2 class="my-4 margin">Meet our top dogs 🏆</h2>
+  <div class="container">
+    <div class="grid">
+      <% @dogs.each do |dog| %>
+        <div class="dog-name">
+          <%= dog.name %>
+        </div>
+        <div class="dog-review">
+          <% aggregated_reviews = dog.reviews.sum(:rating) / dog.reviews.size %>
+          ⭐ <%= aggregated_reviews %> / 10
+        </div>
+        <div class="top-dog-picture">
+          <%= cl_image_tag dog.photos[0].key, crop: :fill %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
 
 <div>
-  <div class="card-owner margin" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path "cards/dogowner.jpeg" %>')">
-    Become a Truffe dog owner
-  </div>
+  <%= link_to dogs_path(category: "holiday") do %>
+    <div class="card-owner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path "cards/dogowner.jpeg" %>')">
+      <div class="">
+        Become a Truffe dog owner
+      </div>
+      <div class="owner-paragraph">
+        Enable your do to become part of Truffe's family! Truffe is the easiest and safest community to find the right person to take care of your doggie once you're away for a couple of days
+      </div>
+    </div>
+  <% end %>
 </div>

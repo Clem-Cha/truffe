@@ -53,6 +53,13 @@
   margin-right: auto;
 }
 
+.cards:hover {
+  transform: scale(1.3);
+  background-color: white;
+  z-index: 1;
+  transition: 1s;
+}
+
 h2 {
   font-weight: bold;
 }
@@ -67,8 +74,10 @@ h5 {
   margin-left: 20px;
 }
 
-.top-cards {
-grid-template-columns: 1fr 1fr 1fr;
+.dog-name {
+  font-weight: bold;
+  font-size: 24px;
+  color: #9AC4F8;
 }
 
 h5 {
@@ -79,9 +88,7 @@ h5 {
 
 .card-owner {
   background-size: cover;
-  background-position: right;
   height: 450px;
-  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -91,5 +98,26 @@ h5 {
   text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  margin: 10px;
+  margin-right: 100px;
+  margin-left: 100px;
+  flex-direction: column;
+}
+
+
+.owner-paragraph {
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+  margin: 30px 140px;
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+  font-weight: normal;
+}
+
+.top-dog-picture {
+  border-radius: 10px;
 }

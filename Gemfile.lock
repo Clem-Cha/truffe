@@ -135,6 +135,8 @@ GEM
     msgpack (1.4.2)
     netrc (0.11.0)
     nio4r (2.5.8)
+    nokogiri (1.12.3-x86_64-darwin)
+      racc (~> 1.4)
     nokogiri (1.12.3-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
@@ -259,6 +261,7 @@ GEM
     zeitwerk (2.4.2)
 
 PLATFORMS
+  x86_64-darwin-20
   x86_64-linux
 
 DEPENDENCIES
@@ -295,4 +298,4 @@ RUBY VERSION
    ruby 2.7.3p183
 
 BUNDLED WITH
-   2.2.21
+   2.2.26

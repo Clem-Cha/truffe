@@ -143,18 +143,22 @@ h5 {
   margin-top: 40px;
 }
 
-.hr {
-  border:none;
-  border-top:1px dotted grey;
-  color:#fff;
-  background-color:#fff;
-  height:1px;
+.margin-bottom {
+  margin-bottom: 60px;
 }
 
 .left-transparent {
   text-align: left;
+  background: linear-gradient(rgb(255, 255, 255), rgba(0, 0, 0, 0.5));
+  background-color: white;
 }
 
 .right-transparent {
   text-align: right;
+  background: linear-gradient(white, rgba(182, 17, 17, 0.5));
+  background-color: white;
+}
+
+.flex-carousel {
+  display: flex;
 }

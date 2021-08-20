@@ -2,8 +2,7 @@
   <div class="row">
     <div class="col-12 col-lg-6 my-3">
       <div class="booking-cards">
-        <h3>Upcoming Bookings</h3>
-
+        <h3>Upcoming bookings</h3>
         <% @bookings_pending.each do |booking| %>
           <% dog = Dog.find(booking.dog_id) %>
           <% user = User.find(dog.user_id) %>
@@ -31,8 +30,8 @@
               <div class="booking-card-buttons">
                 <%= link_to "#{user.first_name}'s profil", profil_path(user) %>
                 <div class="mt-3">
-                  <%= link_to "cancel", booking_path(booking), method: :delete, data: { confirm: 'Are you sure you want to cancel this booking ?' }, class: "button-second" %>
-                  <%= link_to "edit", edit_booking_path(booking), class: "button-second" %>
+                  <%= link_to "Cancel", booking_path(booking), method: :delete, data: { confirm: 'Are you sure you want to cancel this booking ?' }, class: "button-second" %>
+                  <%= link_to "Edit", edit_booking_path(booking), class: "button-second" %>
                 </div>
               </div>
             </div>
@@ -70,15 +69,14 @@
                   </div>
                 </div>
               </div>
+            </div>
+            <div class="review">
               <% if booking.status == "approved" && booking.reviews.length == 0 %>
                 <button type="button" class="button-second" data-toggle="modal" data-target="#create-review-modal<%=index%>">
                   Create a review
                 </button>
-              <% end %>
-            </div>
-            <div class="review">
+              <% elsif booking.reviews.length != 0 %>
               <strong><p>your review :</p></strong>
-              <% if booking.reviews.length != 0 %>
                 <%= booking.reviews[0].comment %>
                 <p><%= booking.reviews[0].rating %> /10 </p>
               <% end %>

@@ -27,3 +27,24 @@
   background-color: white;
   padding: 0px;
  }
+
+.form-control.string {
+  font-size: 14px;
+}
+
+.form-control.select {
+  font-size: 14px;
+}
+
+.form-control.numeric {
+  font-size: 14px;
+}
+
+.form-control.text {
+  font-size: 14px;
+}
+
+ .input.form-control.string.required.datepicker.input {
+   height: 33px;
+   padding: 6px 12px;
+ }

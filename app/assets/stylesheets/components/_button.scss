@@ -30,3 +30,10 @@
     color: black;
   }
 }
+
+a {
+  color: #9AC4F8;
+  &:hover {
+    color: #6590c4;
+  }
+}

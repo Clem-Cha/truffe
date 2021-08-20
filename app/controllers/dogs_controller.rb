@@ -34,7 +34,7 @@ class DogsController < ApplicationController
     authorize @dog
     @booking = Booking.new
     @reviews = @dog.reviews
-    @aggregated_reviews = @reviews.sum(:rating) / @reviews.size
+    # @aggregated_reviews = @reviews.sum(:rating) / @reviews.size
     @markers = [{
       lat: @dog.latitude,
       lng: @dog.longitude,

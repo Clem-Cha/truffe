@@ -4,6 +4,11 @@ class ReviewsController < ApplicationController
     @review = Review.new
     authorize @review
     @booking = Booking.find(params[:booking_id])
+
+    @bookings = policy_scope(Booking)
+    @bookings_pending = @bookings.select { |booking| booking.status == "pending" }
+    @bookings_approved = @bookings.select { |booking| booking.status == "approved" }
+    @bookings_rejected = @bookings.select { |booking| booking.status == "rejected" }
   end
 
   def create
@@ -12,7 +17,12 @@ class ReviewsController < ApplicationController
     authorize @review
     @review.booking = @booking
     @review.save
-    redirect_to bookings_path
+    redirect_to bookings_path, notice: "Your review has been successfully added"
+
+    @bookings = policy_scope(Booking)
+    @bookings_pending = @bookings.select { |booking| booking.status == "pending" }
+    @bookings_approved = @bookings.select { |booking| booking.status == "approved" }
+    @bookings_rejected = @bookings.select { |booking| booking.status == "rejected" }
   end
 
   private

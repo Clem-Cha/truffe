@@ -38,16 +38,26 @@ class DogsController < ApplicationController
     authorize @dog
     @booking = Booking.new
     @reviews = @dog.reviews
-    @aggregated_reviews = @reviews.sum(:rating) / @reviews.size
+    # @aggregated_reviews = @reviews.sum(:rating) / @reviews.size
     @markers = [{
       lat: @dog.latitude,
       lng: @dog.longitude,
       info_window: render_to_string(partial: "info_window", locals: { dog: @dog }),
     }]
+
+    @bookings = policy_scope(Booking)
+    @bookings_pending = @bookings.select { |booking| booking.status == "pending" }
+    @bookings_approved = @bookings.select { |booking| booking.status == "approved" }
+    @bookings_rejected = @bookings.select { |booking| booking.status == "rejected" }
   end
 
   def new
     @dog = Dog.new
+
+    @bookings = policy_scope(Booking)
+    @bookings_pending = @bookings.select { |booking| booking.status == "pending" }
+    @bookings_approved = @bookings.select { |booking| booking.status == "approved" }
+    @bookings_rejected = @bookings.select { |booking| booking.status == "rejected" }
   end
 
   def create
@@ -59,10 +69,20 @@ class DogsController < ApplicationController
     else
       render :new
     end
+
+    @bookings = policy_scope(Booking)
+    @bookings_pending = @bookings.select { |booking| booking.status == "pending" }
+    @bookings_approved = @bookings.select { |booking| booking.status == "approved" }
+    @bookings_rejected = @bookings.select { |booking| booking.status == "rejected" }
   end
 
   def edit
     @dog = Dog.find(params[:id])
+
+    @bookings = policy_scope(Booking)
+    @bookings_pending = @bookings.select { |booking| booking.status == "pending" }
+    @bookings_approved = @bookings.select { |booking| booking.status == "approved" }
+    @bookings_rejected = @bookings.select { |booking| booking.status == "rejected" }
   end
 
   def update
@@ -70,6 +90,11 @@ class DogsController < ApplicationController
     authorize @dog
     @dog.update(dog_params)
     redirect_to dashboard_path, notice: "Your dog's information have been updated"
+
+    @bookings = policy_scope(Booking)
+    @bookings_pending = @bookings.select { |booking| booking.status == "pending" }
+    @bookings_approved = @bookings.select { |booking| booking.status == "approved" }
+    @bookings_rejected = @bookings.select { |booking| booking.status == "rejected" }
   end
 
   def destroy
@@ -77,6 +102,11 @@ class DogsController < ApplicationController
     authorize @dog
     @dog.destroy
     redirect_to dashboard_path
+
+    @bookings = policy_scope(Booking)
+    @bookings_pending = @bookings.select { |booking| booking.status == "pending" }
+    @bookings_approved = @bookings.select { |booking| booking.status == "approved" }
+    @bookings_rejected = @bookings.select { |booking| booking.status == "rejected" }
   end
 
   private

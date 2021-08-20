@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-12 col-sm-6 my-3">
-      <h5>🐶 Edit <strong><%= @dog.name.capitalize %></strong> 🐶</h5>
+      <h5>🐶 Edit your booking with <strong><%= @dog.name.capitalize %></strong> 🐶</h5>
       <div class="form">
         <%= simple_form_for [@booking] do |f| %>
           <%= f.input :start_date, as: :date, html5: true, class: "form-control" %>

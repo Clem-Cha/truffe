@@ -17,6 +17,10 @@ class BookingPolicy < ApplicationPolicy
     record.user == user
   end
 
+  def update_status?
+    record.dog.user == user
+  end
+
   def destroy?
     record.user == user
   end

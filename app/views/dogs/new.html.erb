@@ -1,17 +1,26 @@
-<h1>Add a new truffle</h1>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-6 my-3">
+      <div class="form my-5">
+        <h1>Add a new truffle</h1>
+        <%= simple_form_for @dog do |f| %>
+          <div class="form-input">
+            <%= f.input :name %>
+            <%= f.input :age %>
+            <%= f.input :breed %>
+            <%= f.input :description %>
+            <%= f.input :address %>
+            <%= f.input :start_date, as: :date %>
+            <%= f.input :end_date, as: :date %>
+            <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+            <%= f.select :category, :collection => Dog::DOG_CATEGORY %>
+          </div>
+          <div class="form-action">
+            <%= f.submit "Create", class:"button-second" %>
+          </div>
+        <% end %> 
+      </div>
+    </div>
+  </div>
+</div>
 
-<%= simple_form_for @dog do |f| %>
-  <%= f.input :name %>
-  <%= f.input :age %>
-  <%= f.input :breed %>
-  <%= f.select :category, :collection => Dog::DOG_CATEGORY %>
-  <%= f.input :description %>
-  <%= f.input :start_date, as: :date %>
-  <%= f.input :end_date, as: :date %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.submit "Create", class:"btn btn-dark" %>
-<% end %>
-
-<%# if policy(Dog).create? %>
-  <%#= link_to "New truffle", new_dog_path %>
-<%# end %>

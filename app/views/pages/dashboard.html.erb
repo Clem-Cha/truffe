@@ -1,0 +1,154 @@
+<div class="row">
+  <div class="col-12">
+    <div style="margin-left: 100px; margin-top: 30px;">
+      <%= link_to "Add a new truffle", new_dog_path, class:"button-first" %>
+      <% if @dogs.empty? %>
+        <hr>
+        <em><small><p>You don't have any dog for the moment</p></small></em>
+        <% end %>
+    </div>
+    <% unless @dogs.empty? %>
+      <div class="dog-carousel">
+        <div class="dogs-container">
+          <% @dogs.each do |dog| %>
+            <div class="card-dog">
+              <% if dog.photos.attached? %>
+                <div id="name-<%= dog.id %>" class="carousel slide" data-interval="false">
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <%= cl_image_tag dog.photos[0].key, crop: :fill %>
+                    </div>
+                    <div class="carousel-item">
+                      <%= cl_image_tag dog.photos[1].key, crop: :fill %>
+                    </div>
+                    <div class="carousel-item">
+                      <%= cl_image_tag dog.photos[2].key, crop: :fill %>
+                    </div>
+                  </div>
+                  <button class="carousel-control-prev" type="button" data-bs-target="#name-<%= dog.id %>" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#name-<%= dog.id %>" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                </div>
+              <% else %>
+                <img src="https://source.unsplash.com/random"/>
+              <% end %>
+              <div class="card-dog-content">
+                <h5><%= link_to dog.name, dog_path(dog) %></h5>
+                <p>🐕 <%= dog.breed %> <br>
+                                    🦴 <%= dog.category.capitalize %> <br>
+                                    ⏳ <%= dog.age %> years old<br>
+                                      <small><%= dog.description %></small></p>
+                <div class="d-flex mb-2 justify-content-between">
+                  <%= link_to "Update", edit_dog_path(dog), class:"button-second" %>
+                  <%= link_to "Delete", dog_path(dog), method: :delete, data: {confirm: "Are you sure?"}, class:"button-second" %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="container">
+
+  <hr>
+  <div class="row">
+    <div class="col-12 col-lg-6 py-3">
+
+      <div>
+        <h3>My pending booking requests</h3>
+        <% if @bookings_pending.empty? %>
+          <hr>    
+          <small><em><p>You don't have any booking requests yet !</p></em></small>
+        <% else %>
+          <% @bookings_pending.each do |booking| %>
+            <% dog = Dog.find(booking.dog_id) %>
+            <% user = User.find(booking.user_id) %>
+
+            <div class="booking-card booking-card-pending">
+              <% if dog.photos.attached? %>
+                <%= cl_image_tag dog.photos[0].key, class:"booking-card-image" %>
+              <% else %>
+                <%= image_tag 'home.jpg', class:"booking-card-image" %>
+              <% end %>
+              <div class="booking-card-content">
+                <div class="booking-card-title">
+                  <h4><%= link_to dog.name, dog_path(dog) %></h4>
+                  <div class="booking-card-date">
+                    <div>
+                      <p>from</p>
+                      <p>to</p>
+                    </div>
+                    <div class="dates">
+                      <strong><%= booking.start_date %></strong>
+                      <strong><%= booking.end_date %></strong>
+                    </div>
+                  </div>  
+                </div>
+
+                <div class="booking-card-buttons">
+                  <%= link_to "#{user.first_name}'s profil", profil_path(user) %>
+                  <div class="mt-3">
+                    <%= link_to "Accept", update_status_booking_path(booking, status: "approved"), method: :patch, class: "button-second" %>
+                    <%= link_to "Reject", update_status_booking_path(booking, status: "rejected"), method: :patch, class: "button-second" %>  
+                  </div>
+                </div>
+                  
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
+    </div>
+
+    <div class="col-12 col-lg-6 py-3">
+
+      <div>
+        <h3>My booking history</h3>
+        <% @bookings_history.each do |booking| %>
+          <% dog = Dog.find(booking.dog_id) %>
+          <% user = User.find(booking.user_id) %>
+
+          <div class="booking-card booking-card-past">
+            <% if dog.photos.attached? %>
+              <%= cl_image_tag dog.photos[0].key, class:"booking-card-image" %>
+            <% else %>
+              <%= image_tag 'home.jpg', class:"booking-card-image" %>
+            <% end %>
+            <div class="booking-card-content flex-grow-1">
+              <div class="booking-card-title">
+                <h4><%= link_to dog.name, dog_path(dog) %></h4>
+                <div class="booking-card-date">
+                  <div>
+                    <p>from</p>
+                    <p>to</p>
+                  </div>
+                  <div class="dates">
+                    <strong><%= booking.start_date %></strong>
+                    <strong><%= booking.end_date %></strong>
+                  </div>
+                </div>
+              </div>
+
+              <div class="booking-card-buttons">
+                <%= link_to "#{user.first_name}'s profil", profil_path(user) %>
+                <div class="mt-3">
+                  <%= booking.status.capitalize %>
+                </div>
+              </div> 
+            </div>
+          </div>
+        <% end %>
+
+      </div>
+      
+    </div> 
+  </div>
+</div>

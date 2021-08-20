@@ -33,6 +33,13 @@ class BookingsController < ApplicationController
     redirect_to bookings_path
   end
 
+  def update_status
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    @booking.update(status: params[:status])
+    redirect_to dashboard_path, notice: "You have #{params[:status]} the booking"
+  end
+
   def destroy
     @booking = Booking.find(params[:id])
     authorize @booking

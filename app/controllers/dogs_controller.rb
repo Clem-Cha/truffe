@@ -65,11 +65,18 @@ class DogsController < ApplicationController
     @dog = Dog.find(params[:id])
     authorize @dog
     @dog.update(dog_params)
-    redirect_to dogs_path(@dog)
+    redirect_to dashboard_path, notice: "Your dog's information have been updated"
+  end
+
+  def destroy
+    @dog = Dog.find(params[:id])
+    authorize @dog
+    @dog.destroy
+    redirect_to dashboard_path
   end
 
   private
   def dog_params
-    params.require(:dog).permit(:breed, :category, :start_date, :end_date)
+    params.require(:dog).permit(:breed, :category, :address, :start_date, :end_date, :name, :age, :description, photos: [])
   end
 end

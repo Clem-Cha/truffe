@@ -54,3 +54,40 @@
 .card-product-dog .card-product-infos-dog {
   padding: 16px;
 }
+
+.dogs-container {
+  display: flex;
+  justify-content: center;
+  flex-flow: row nowrap;
+}
+
+.card-dog {
+  background: white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  height: 600px;
+  width: 300px;
+  padding-bottom: 10px;
+  margin: 20px;
+  img {
+    height: 300px;
+    object-fit: cover;
+    width: 300px;
+  }
+}
+.card-dog-content {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  height: 300px;
+  p {
+    flex-grow: 1;
+  }
+}
+
+.dog-carousel {
+  overflow-x: auto;
+  height: 100%;
+}
+.dog-carousel::-webkit-scrollbar {
+  display: none;
+}

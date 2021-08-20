@@ -34,6 +34,7 @@ import { initReviewOnHover } from '../components/review';
 import { loadDynamicBannerText } from "../components/banner";
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import { initFlatpickr } from "../plugins/flatpickr";
+import { initCalendar } from "../components/calendar";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -48,4 +49,5 @@ document.addEventListener('turbolinks:load', () => {
   initAutocomplete();
   initFlatpickr();
   showSearchbarSmall();
+  initCalendar();
 });

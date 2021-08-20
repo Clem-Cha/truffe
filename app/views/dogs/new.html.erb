@@ -8,19 +8,22 @@
             <%= f.input :name %>
             <%= f.input :age %>
             <%= f.input :breed %>
+            <%= f.input :category, as: :select, input_html: { class: "form-select" }, :collection => Dog::DOG_CATEGORY %>
             <%= f.input :description %>
             <%= f.input :address %>
-            <%= f.input :start_date, as: :date %>
-            <%= f.input :end_date, as: :date %>
-            <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-            <%= f.select :category, :collection => Dog::DOG_CATEGORY %>
+            <%= f.input :start_date, as: :string, input_html: {class: "datepicker"}%>
+            <%= f.input :end_date, as: :string , input_html: {class: "datepicker"}%>
+            <br>
+            <div class="photo-btn">
+            <%= f.label "Photos" %>
+            <%= f.input :photos, as: :file, input_html: { multiple: true, class: "hidden" }, label: "Add pictures", label_html: { class: "button-second inline" } %>
+            </div>
           </div>
           <div class="form-action">
-            <%= f.submit "Create", class:"button-second" %>
+            <%= f.submit "Create", class:"button-first mt-4 mb-1 " %>
           </div>
-        <% end %> 
+        <% end %>
       </div>
     </div>
   </div>
 </div>
-

@@ -45,6 +45,12 @@
 }
 
  .input.form-control.string.required.datepicker.input {
-   height: 33px;
-   padding: 6px 12px;
+  height: 33px;
+  padding: 6px 12px;
+ }
+
+ .form-control.mx-1.date.required.datepicker.input {
+  height: 33px;
+  padding: 6px 12px;
+  font-size: 14px;
  }

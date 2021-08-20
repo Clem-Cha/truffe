@@ -83,24 +83,31 @@
 <div class="margin-top">
   <h2 class="my-4 margin text-center">Meet our top dogs 🏆</h2>
   <% unless @dogs.empty? %>
-    <div class="dog-carousel">
-      <div class="dogs-container">
-        <% @dogs.each do |dog| %>   
-          <%= link_to dog_path(dog) do %>   
-            <div class="card cards">
-              <div class="dog-name">
-                <%= dog.name %>
+    <div class="container">
+
+      <div class="dog-carousel">
+        <div class="left-transparent">
+        </div>
+        <div class="right-transparent">
+        </div>
+        <div class="dogs-container">
+          <% @dogs.each do |dog| %>
+            <%= link_to dog_path(dog) do %>
+              <div class="card cards mx-3">
+                <div class="dog-name">
+                  <%= dog.name %>
+                </div>
+                <div class="dog-review">
+                  <% aggregated_reviews = dog.reviews.sum(:rating) / dog.reviews.size %>
+                  <p>⭐ <%= aggregated_reviews %> / 10</p>
+                </div>
+                <div class="top-dog-picture">
+                  <%= cl_image_tag dog.photos[0].key, crop: :fill %>
+                </div>
               </div>
-              <div class="dog-review">
-                <% aggregated_reviews = dog.reviews.sum(:rating) / dog.reviews.size %>
-                <p>⭐ <%= aggregated_reviews %> / 10</p>
-              </div>
-              <div class="top-dog-picture">
-                <%= cl_image_tag dog.photos[0].key, crop: :fill %>
-              </div>
-            </div>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
       </div>
     </div>
   <% end %>
@@ -108,7 +115,7 @@
 
 <div class="margin-top border-top" >
   <%= link_to new_dog_path(category: "holiday") do %>
-    <div class="card-owner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_tag "cards/dogowner.png" %>')">
+    <div class="card-owner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path "cards/dogowner.jpeg" %>')">
       <div class="">
         Become a Truffe dog owner
       </div>

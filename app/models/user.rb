@@ -6,4 +6,8 @@ class User < ApplicationRecord
 
   has_many :dogs, dependent: :destroy
   has_many :bookings, dependent: :destroy
+
+  def pending_bookings
+    dogs.flat_map(&:bookings).select { |b| b.status == 'pending' }.count
+  end
 end

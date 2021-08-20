@@ -10,7 +10,7 @@
   <div class="collapse navbar-collapse">
     <ul class="navbar-nav">
       <% if user_signed_in? %>
-        <li class="nav-item">
+        <li class="nav-item js-notifications">
           <% if @bookings_approved.count > 2 || @bookings_rejected.count > 2  %>
             <div class="dropdown">
               <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

@@ -1,0 +1,13 @@
+#map {
+  position: sticky;
+  top: 70px;
+}
+
+.mapboxgl-popup {
+  max-width: 200px;
+}
+
+.mapboxgl-popup-content {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}

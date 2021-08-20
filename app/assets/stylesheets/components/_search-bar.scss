@@ -1,5 +1,8 @@
 .search-form-control {
-  margin: 30px 100px;
+
+  // margin: 30px 100px;
+  margin-left: -60px;
+
 }
 
 .search-form-control .btn {
@@ -21,6 +24,8 @@
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
 }
 
+
+
 .btn-flat {
   color: white;
   padding: 8px 24px;
@@ -35,9 +40,10 @@
 }
 
 .seach-bar {
+  width: 80%;
   display: flex;
   justify-content: space-around;
-  margin: 50px;
+  margin: 50px auto;
   border: 1px solid rgb(226, 225, 225);
   border-radius: 15px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);

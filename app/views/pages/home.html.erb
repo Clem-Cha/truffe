@@ -83,13 +83,11 @@
 <div class="margin-top">
   <h2 class="my-4 margin text-center">Meet our top dogs 🏆</h2>
   <% unless @dogs.empty? %>
-    <div class="container">
-
+    <div class="container flex-carousel">
+      <div class="left-transparent">
+          <p>This is some text that is placed in the transparent box.</p>
+      </div>
       <div class="dog-carousel">
-        <div class="left-transparent">
-        </div>
-        <div class="right-transparent">
-        </div>
         <div class="dogs-container">
           <% @dogs.each do |dog| %>
             <%= link_to dog_path(dog) do %>
@@ -109,11 +107,14 @@
           <% end %>
         </div>
       </div>
+      <div class="right-transparent">
+        <p>This is some text that is placed in the transparent box.</p>
+      </div>
     </div>
   <% end %>
 </div>
 
-<div class="margin-top border-top margin-bottom mb-5" >
+<div class="margin-top margin-bottom mb-5" >
   <%= link_to new_dog_path(category: "holiday") do %>
     <div class="card-owner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path "cards/dogowner.jpeg" %>')">
       <div class="">

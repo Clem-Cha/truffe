@@ -149,12 +149,16 @@ h5 {
 
 .left-transparent {
   text-align: left;
+  background: linear-gradient(rgb(255, 255, 255), rgba(0, 0, 0, 0.5));
+  background-color: white;
 }
 
 .right-transparent {
   text-align: right;
+  background: linear-gradient(white, rgba(182, 17, 17, 0.5));
+  background-color: white;
 }
 
-.border-top {
-  border:none;
+.flex-carousel {
+  display: flex;
 }

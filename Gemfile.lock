@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/faker-ruby/faker.git
-  revision: dbe136272a8084d28c5e57bcec5de04c8a63a6a2
+  revision: 48d160875bd6a3678cb7dc2315618a9879e06788
   branch: master
   specs:
     faker (2.18.0)
@@ -131,32 +131,11 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2021.0704)
     mini_mime (1.1.0)
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-    mini_portile2 (2.6.1)
->>>>>>> cd82a5663b107536c94ffc0b515a6323f089cd0c
-=======
-
-    mini_portile2 (2.6.1)
-
->>>>>>> f3ce50fee7106e004e6d96f270d616f0f01e4e32
     minitest (5.14.4)
     msgpack (1.4.2)
     netrc (0.11.0)
     nio4r (2.5.8)
-<<<<<<< HEAD
-<<<<<<< HEAD
     nokogiri (1.12.3-x86_64-darwin)
-=======
-    nokogiri (1.12.3)
-      mini_portile2 (~> 2.6.1)
->>>>>>> cd82a5663b107536c94ffc0b515a6323f089cd0c
-=======
-
-    nokogiri (1.12.3)
-
->>>>>>> f3ce50fee7106e004e6d96f270d616f0f01e4e32
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pg (1.2.3)
@@ -279,17 +258,9 @@ GEM
       nokogiri (~> 1.8)
     zeitwerk (2.4.2)
 
-<<<<<<< HEAD
 PLATFORMS
-<<<<<<< HEAD
+  ruby
   x86_64-darwin-20
-=======
-  ruby
->>>>>>> cd82a5663b107536c94ffc0b515a6323f089cd0c
-=======
-  ruby
-
->>>>>>> f3ce50fee7106e004e6d96f270d616f0f01e4e32
 
 DEPENDENCIES
   autoprefixer-rails (= 10.2.5)
@@ -324,14 +295,5 @@ DEPENDENCIES
 RUBY VERSION
    ruby 2.7.3p183
 
-<<<<<<< HEAD
 BUNDLED WITH
-<<<<<<< HEAD
    2.2.26
-=======
-   2.1.4
->>>>>>> cd82a5663b107536c94ffc0b515a6323f089cd0c
-=======
-   2.2.26
-
->>>>>>> f3ce50fee7106e004e6d96f270d616f0f01e4e32

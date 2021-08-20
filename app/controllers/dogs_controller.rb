@@ -3,8 +3,8 @@ class DogsController < ApplicationController
   def index
     @dogs = policy_scope(Dog)
 
-    if params[:category].present?
-      @dogs = @dogs.where(category: params[:category])
+    if params[:category].present? || params[:category_small].present?
+      @dogs = @dogs.where(category: params[:category]  || params[:category_small])
     end
 
     if params[:breed].present?

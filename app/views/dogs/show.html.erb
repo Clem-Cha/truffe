@@ -7,7 +7,9 @@
     <div class="flex justify-content-between">
       <div class="flex">
 
-        ⭐ <%= @aggregated_reviews %>
+        ⭐ <% if @aggregated_reviews.nan? %><%= "No review yet" %>
+        <% else %><%= @aggregated_reviews %>
+        <% end %>
         🐕 <%= @dog.breed.capitalize %>
         ⏳ <%= @dog.age %> y.o.
         🦴 <%= @dog.category.capitalize %>

@@ -1,14 +1,29 @@
-<h1>Change information about <%= @dog.name %></h1>
-
-<%= simple_form_for @dog do |f| %>
-  <%= f.input :name %>
-  <%= f.input :age %>
-  <%= f.input :breed %>
-  <%= f.select :category, :collection => Dog::DOG_CATEGORY %>
-  <%= f.input :description %>
-  <%= f.input :address %>
-  <%= f.input :start_date, as: :date %>
-  <%= f.input :end_date, as: :date %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.submit "Submit changes", class:"btn btn-dark" %>
-<% end %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-6 my-3">
+      <div class="form my-5">
+        <h1>Change information about <%= @dog.name %></h1>
+        <%= simple_form_for @dog do |f| %>
+          <div class="form-input">
+            <%= f.input :name %>
+            <%= f.input :age %>
+            <%= f.input :breed %>
+            <%= f.input :category, as: :select, input_html: { class: "form-select" }, :collection => Dog::DOG_CATEGORY %>
+            <%= f.input :description %>
+            <%= f.input :address %>
+            <%= f.input :start_date, as: :date %>
+            <%= f.input :end_date, as: :date %>
+            <br>
+            <div class="photo-btn">
+              <%= f.label "Photos" %>
+              <%= f.input :photos, as: :file, input_html: { multiple: true, class: "hidden" }, label: "Add pictures", label_html: { class: "button-second inline" } %>
+            </div>
+          </div>
+          <div class="form-action">
+            <%= f.submit "Submit changes", class:"button-first mt-4 mb-1 " %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

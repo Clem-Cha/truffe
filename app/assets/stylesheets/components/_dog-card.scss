@@ -95,7 +95,9 @@
 .dog-carousel {
   overflow-x: auto;
   height: 300px;
+  z-index: 3;
 }
+
 .dog-carousel::-webkit-scrollbar {
   display: none;
 }
@@ -129,4 +131,3 @@
     border-radius: 10px;
   }
 }
-

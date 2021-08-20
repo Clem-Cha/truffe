@@ -69,7 +69,17 @@
   background-color: white;
   color: white;
   transition: all 0.3s;
+  position: relative;
+
+
+  button {
+    font-size: initial;
+    position: absolute;
+    top: 0px;
+    right: 10px;
+  }
 }
+
 .review-visible {
   color: black;
   background-color: rgb(240, 240, 240);

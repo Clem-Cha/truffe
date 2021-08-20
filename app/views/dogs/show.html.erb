@@ -7,8 +7,10 @@
     <div class="flex justify-content-between">
       <div class="flex">
 
-        ⭐ <% if @aggregated_reviews.nan? %><%= "No review yet" %>
-        <% else %><%= @aggregated_reviews %>
+        ⭐ <% if @dog.average_rating.zero? %>
+          <%= "No review yet" %>
+        <% else %>
+          <%= @dog.average_rating %>
         <% end %>
         🐕 <%= @dog.breed.capitalize %>
         ⏳ <%= @dog.age %> y.o.
@@ -36,9 +38,9 @@
       <div class="form">
         <h5 class="my-3">🐶 Book <strong><%= @dog.name.capitalize %></strong> 🐶</h5>
         <%= simple_form_for [@dog, @booking] do |f| %>
-          <%= f.input :start_date, as: :date, html5: true, class: "form-control" %>
-          <%= f.input :end_date, as: :date, html5: true, class: "form-control" %>
-          <%= f.submit class: "button-first" %>
+          <%= f.input :start_date, as: :date, html5: true, input_html: {class: "form-control datepicker"} %>
+          <%= f.input :end_date, as: :date, html5: true, input_html: {class: "form-control datepicker"} %>
+          <%= f.submit "Create booking", class: "button-first" %>
         <% end %>
       </div>
     </div>
@@ -59,7 +61,7 @@
             <div class="card-product">
               <div class="card-product-infos">
                 <h2><%= review.booking.user.first_name %></h2>
-                <h2><%= review.rating / 10 %></h2>
+                <h2><%= review.rating %> / 10</h2>
                 <p><%= review.comment %></p>
               </div>
             </div>

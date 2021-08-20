@@ -143,18 +143,29 @@ h5 {
   margin-top: 40px;
 }
 
-.hr {
-  border:none;
-  border-top:1px dotted grey;
-  color:#fff;
-  background-color:#fff;
-  height:1px;
+.margin-bottom {
+  margin-bottom: 60px;
 }
 
 .left-transparent {
-  text-align: left;
+  background-color: white;
+  background: linear-gradient(270deg, rgba(246, 244, 244, 0) 10%, white 100%);
+  z-index: 5;
+  position: absolute;
+  height: 100%;
+  width: 40px;
 }
 
 .right-transparent {
-  text-align: right;
+  background: linear-gradient(90deg, rgba(246, 244, 244, 0) -8%, white 100%);
+  z-index: 5;
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: 40px;
+}
+
+.flex-carousel {
+  display: flex;
+  position: relative;
 }

@@ -14,7 +14,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.status = "pending"
     if @booking.save
-      redirect_to bookings_path
+      redirect_to bookings_path, notice: "Your booking has been registered"
     else
       render 'dogs/show'
     end
@@ -30,7 +30,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     authorize @booking
     @booking.update(booking_params)
-    redirect_to bookings_path
+    redirect_to bookings_path, notice: "Your booking has been successfully updated"
   end
 
   def update_status
@@ -44,7 +44,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     authorize @booking
     @booking.destroy
-    redirect_to bookings_path
+    redirect_to bookings_path, notice: "Your booking has been deleted"
   end
 
   private

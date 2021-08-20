@@ -2,13 +2,13 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: :home
 
   def home
-    @top3_dogs = Dog.joins(:bookings, :reviews)
+    @top10_dogs = Dog.joins(:bookings, :reviews)
                     .select("dogs.id, avg(reviews.rating) as average_rating")
                     .group("dogs.id")
                     .order("average_rating DESC")
-                    .limit(3)
-    @top3_dogs_ids = @top3_dogs.map { |x| x.id }
-    @dogs = Dog.where(id: @top3_dogs_ids)
+                    .limit(10)
+    @top10_dogs_ids = @top10_dogs.map { |x| x.id }
+    @dogs = Dog.where(id: @top10_dogs_ids)
   end
 
   def dashboard

@@ -12,7 +12,7 @@ class ReviewsController < ApplicationController
     authorize @review
     @review.booking = @booking
     @review.save
-    redirect_to bookings_path
+    redirect_to bookings_path, notice: "Your review has been successfully added"
   end
 
   private

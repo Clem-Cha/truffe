@@ -7,27 +7,38 @@
   width: 350px;
 }
 
+
 .search-bar-small .fa-paw {
   padding: 8px 8px;
   border-radius: 50%;
   background: #9AC4F8;
   position: relative;
   bottom: 6px;
-  left: 8px;
+  left: -6px;
+
+  &:hover {
+    background: #196AC9;
+  }
 }
 
 .search-bar-small .btn-flat {
   color: white;
   padding: 0px 0px;
+  height: 23px;
+  width: 20px;
 
   border-radius: 50%;
-  background: white;
+  background: black;
   transition: background 0.3s ease;
 }
 
 .search-bar-small .btn-flat:hover {
-  background: #9AC4F8;
   color: white;
+}
+
+.search-bar-small .btn-flat:active {
+  border-style: none;
+  border: 1px solid white;
 }
 
 .search-bar-small {
@@ -48,7 +59,7 @@
   }
 }
 
-.search-bar-item {
+.search-bar-small .search-bar-item {
   border-style: none;
   border-right:1px solid rgb(226, 225, 225);
   padding-right: 45px;

@@ -4,9 +4,26 @@
   flex-direction: column;
   box-shadow: 0 0 10px rgba(0,0,0,0.05);
   .form-control {
-    margin: 10px 0px;  
+    margin: 10px 0px;
   }
   label {
-    padding-left: 10px; 
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 0px;
   }
 }
+
+.hidden {
+  display: none;
+}
+
+.photo-btn {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.input.datepicker.form-control.input {
+  background-color: white;
+  padding: 0px;
+ }

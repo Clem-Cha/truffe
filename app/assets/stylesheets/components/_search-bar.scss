@@ -34,7 +34,7 @@
 }
 
 .btn-flat:hover {
-  background: #9AC4F8;
+  background: #196AC9;
   color: white;
 }
 
@@ -92,7 +92,7 @@
     display: none;
   }
   .item-2 {
-    border-style: none;
+    border: none;
   }
   .search-bar-item {
     padding-right: 75px;
@@ -103,6 +103,10 @@
   #breed {
     width: 250px;
   }
+}
+
+select:focus-visible {
+  outline: none;
 }
 
 @media screen and (max-width: 1060px) {

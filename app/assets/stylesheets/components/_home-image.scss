@@ -148,17 +148,24 @@ h5 {
 }
 
 .left-transparent {
-  text-align: left;
-  background: linear-gradient(rgb(255, 255, 255), rgba(0, 0, 0, 0.5));
   background-color: white;
+  background: linear-gradient(270deg, rgba(246, 244, 244, 0) 10%, white 100%);
+  z-index: 5;
+  position: absolute;
+  height: 100%;
+  width: 40px;
 }
 
 .right-transparent {
-  text-align: right;
-  background: linear-gradient(white, rgba(182, 17, 17, 0.5));
-  background-color: white;
+  background: linear-gradient(90deg, rgba(246, 244, 244, 0) -8%, white 100%);
+  z-index: 5;
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: 40px;
 }
 
 .flex-carousel {
   display: flex;
+  position: relative;
 }

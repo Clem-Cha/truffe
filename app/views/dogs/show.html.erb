@@ -27,7 +27,20 @@
     </div>
   </div>
 
+
   <div class="row">
+
+    <div class="col-12 col-lg-6 my-3">
+      <div class="form">
+        <h5 class="my-3">🐶 Book <strong><%= @dog.name.capitalize %></strong> 🐶</h5>
+        <%= simple_form_for [@dog, @booking] do |f| %>
+          <%= f.input :start_date, as: :date, html5: true, class: "form-control" %>
+          <%= f.input :end_date, as: :date, html5: true, class: "form-control" %>
+          <%= f.submit class: "button-first" %>
+        <% end %>
+      </div>
+    </div>
+
     <div class="col-12 col-lg-6 my-3">
       <% if @aggregated_reviews.nil? == true %>
         <%= "" %>
@@ -52,18 +65,8 @@
         <% end %>
       <% end %>
     </div>
-
-    <div class="col-12 col-lg-6 my-3">
-      <div class="form">
-        <h5 class="my-3">🐶 Book <strong><%= @dog.name.capitalize %></strong> 🐶</h5>
-        <%= simple_form_for [@dog, @booking] do |f| %>
-          <%= f.input :start_date, as: :date, html5: true, class: "form-control" %>
-          <%= f.input :end_date, as: :date, html5: true, class: "form-control" %>
-          <%= f.submit class: "button-first" %>
-        <% end %>
-      </div>
-    </div>
   </div>
+
   <div id="map"
     style="flex-grow: 1; height: 480px; margin: 50px 0; border-radius: 10px;"
     data-markers="<%= @markers.to_json %>"

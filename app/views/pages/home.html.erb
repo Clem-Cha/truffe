@@ -9,7 +9,7 @@
 </div>
 
 <div class="container">
-  <h2 class="my-4">A dog, a hobby</h2>
+  <h2 class="my-4 text-center">A dog, a hobby</h2>
   <div class="card-boxes margin">
     <div class="cards">
       <%= link_to dogs_path(category: "walk") do %>
@@ -81,7 +81,7 @@
 </div>
 
 <div class="margin-top">
-  <h2 class="my-4 margin">Meet our top dogs 🏆</h2>
+  <h2 class="my-4 margin text-center">Meet our top dogs 🏆</h2>
   <% unless @dogs.empty? %>
     <div class="dog-carousel">
       <div class="dogs-container">
@@ -93,7 +93,7 @@
               </div>
               <div class="dog-review">
                 <% aggregated_reviews = dog.reviews.sum(:rating) / dog.reviews.size %>
-                ⭐ <%= aggregated_reviews %> / 10
+                <p>⭐ <%= aggregated_reviews %> / 10</p>
               </div>
               <div class="top-dog-picture">
                 <%= cl_image_tag dog.photos[0].key, crop: :fill %>

@@ -6,7 +6,8 @@
 }
 
 .search-bar {
-  animation: fade-in 1s;
+  // animation: fade-in 1s;
+  transition: visibility 0s, opacity 0.5s linear;
 }
 
 @keyframes fade-out {
@@ -21,6 +22,7 @@
 .d-none {
   animation: fade-out 1s;
 }
+
 
 
 .search-form-control-index {

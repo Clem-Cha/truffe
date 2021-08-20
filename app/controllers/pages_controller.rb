@@ -9,6 +9,11 @@ class PagesController < ApplicationController
                     .limit(10)
     @top10_dogs_ids = @top10_dogs.map { |x| x.id }
     @dogs = Dog.where(id: @top10_dogs_ids)
+
+    @bookings = policy_scope(Booking)
+    @bookings_pending = @bookings.select { |booking| booking.status == "pending" }
+    @bookings_approved = @bookings.select { |booking| booking.status == "approved" }
+    @bookings_rejected = @bookings.select { |booking| booking.status == "rejected" }
   end
 
   def dashboard
@@ -17,6 +22,11 @@ class PagesController < ApplicationController
     @dog_ids = @dogs.map { |dog| dog.id  }
     @bookings_pending = Booking.where(dog_id: @dog_ids, status: "pending").order(updated_at: :desc)
     @bookings_history = Booking.where(dog_id: @dog_ids, status: ["approved", "rejected"]).order(updated_at: :desc)
+
+    @bookings = policy_scope(Booking)
+    @bookings_pending = @bookings.select { |booking| booking.status == "pending" }
+    @bookings_approved = @bookings.select { |booking| booking.status == "approved" }
+    @bookings_rejected = @bookings.select { |booking| booking.status == "rejected" }
   end
 
   def profil

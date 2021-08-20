@@ -64,21 +64,15 @@
 .card-dog {
   background: white;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  height: 600px;
-  width: 300px;
   padding-bottom: 10px;
   margin: 20px;
-  img {
-    height: 300px;
-    object-fit: cover;
-    width: 300px;
-  }
 }
 .card-dog-content {
   display: flex;
   flex-direction: column;
   padding: 10px;
-  height: 300px;
+  height: 200px;
+  width: 50%;
   p {
     flex-grow: 1;
   }
@@ -90,4 +84,37 @@
 }
 .dog-carousel::-webkit-scrollbar {
   display: none;
+}
+
+
+
+
+.dog-card-images {
+  display: flex;
+  width: auto;
+  height: 200px;
+  margin: 10px;
+}
+.dog-card-big-img {
+  width: 50%;
+  height: 100%;
+  img {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    height: 100%;
+  }
+}
+.dog-card-small-img {
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 20px;
+    img {
+    align-items: center;
+    object-fit: cover;
+    height: 48%;
+    border-radius: 10px;
+  }
 }

@@ -3,10 +3,6 @@ const initUpdateSearchbarOnScroll = () => {
   const searchbarIndex = document.querySelector('.search-bar');
   const searchbarSmall = document.querySelector('.searchbar-small');
   const index = document.querySelector('.index-js');
-  console.log(navbar);
-  console.log(searchbarIndex);
-  console.log(searchbarSmall);
-  console.log(index);
 
   if (index) {
     if (navbar) {

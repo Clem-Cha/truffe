@@ -99,7 +99,7 @@
                 </div>
                 <div class="dog-review">
                   <% aggregated_reviews = dog.reviews.sum(:rating) / dog.reviews.size %>
-                  <p>⭐ <%= aggregated_reviews %> / 10</p>
+                  <p>⭐ <%= aggregated_reviews.round(1) %> / 10</p>
                 </div>
                 <div class="top-dog-picture">
                   <%= cl_image_tag dog.photos[0].key, crop: :fill %>
@@ -113,7 +113,7 @@
   <% end %>
 </div>
 
-<div class="margin-top border-top" >
+<div class="margin-top border-top margin-bottom" >
   <%= link_to new_dog_path(category: "holiday") do %>
     <div class="card-owner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path "cards/dogowner.jpeg" %>')">
       <div class="">
@@ -121,6 +121,9 @@
       </div>
       <div class="owner-paragraph">
         Enable your dog to become part of Truffe family! <br> Truffe is the friendliest and safest community to find the right person <br>to take care of your doggie once you're away for a couple of days
+      </div>
+      <div>
+        <p style="margin-top: 30px;" class="button-first">Become a dog owner</p>
       </div>
     </div>
   <% end %>

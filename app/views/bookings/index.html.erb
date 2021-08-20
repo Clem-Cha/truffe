@@ -3,7 +3,6 @@
     <div class="col-12 col-lg-6 my-3">
       <div class="booking-cards">
         <h3>Upcoming bookings</h3>
-
         <% @bookings_pending.each do |booking| %>
           <% dog = Dog.find(booking.dog_id) %>
           <% user = User.find(dog.user_id) %>

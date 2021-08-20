@@ -4,3 +4,31 @@
   right: 16px;
   z-index: 1000;
 }
+
+.notice-flash {
+  background-color: #9AC4F8;
+  border-radius: 10px;
+  width: fit-content;
+  margin: 20px;
+  padding: 10px;
+  color: #222A68;
+
+  button {
+    border: none;
+    background-color: #9AC4F8;
+    color: #222A68;
+  }
+}
+
+.alert-flash {
+  background-color: #F8D7D9;
+  border-radius: 10px;
+  width: fit-content;
+  margin: 20px;
+  padding: 10px;
+
+  button {
+    border: none;
+    background-color: #9AC4F8;
+  }
+}

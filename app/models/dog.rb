@@ -20,4 +20,9 @@ class Dog < ApplicationRecord
 
   scope :after, -> (date) { where('start_date <= ?', Date.parse(date)) }
   scope :before, -> (date) { where('end_date >= ?', Date.parse(date)) }
+
+  def average_rating
+    return 0 if self.reviews.empty?
+    self.reviews.pluck(:rating).sum / self.reviews.length.to_f
+  end
 end

@@ -38,7 +38,7 @@
         <%= simple_form_for [@dog, @booking] do |f| %>
           <%= f.input :start_date, as: :date, html5: true, input_html: {class: "form-control datepicker"} %>
           <%= f.input :end_date, as: :date, html5: true, input_html: {class: "form-control datepicker"} %>
-          <%= f.submit class: "button-first" %>
+          <%= f.submit "Create booking", class: "button-first" %>
         <% end %>
       </div>
     </div>

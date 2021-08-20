@@ -13,6 +13,9 @@
   box-shadow: none;
   border-bottom: 1px solid grey;
   height: 300px;
+  &:last-child {
+    border-bottom: none;
+  }
 }
 
 .card-product-dog img {
